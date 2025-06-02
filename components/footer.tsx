@@ -3,19 +3,19 @@ import Link from 'next/link'
 
 const links = [
     {
-        title: 'Features',
-        href: '#',
-    },
-    {
-        title: 'Solution',
-        href: '#',
-    },
-    {
-        title: 'Customers',
-        href: '#',
-    },
-    {
         title: 'Pricing',
+        href: '#',
+    },
+    {
+        title: 'Faq',
+        href: '#',
+    },
+    {
+        title: 'Blogs',
+        href: '#',
+    },
+    {
+        title: 'Book a call',
         href: '#',
     },
     {
@@ -158,7 +158,7 @@ export default function FooterSection() {
                         </svg>
                     </Link>
                 </div>
-                <span className="text-muted-foreground block text-center text-sm"> © {new Date().getFullYear()} Tailark, All rights reserved</span>
+                <span className="text-muted-foreground block text-center text-sm">Leadseeder © {new Date().getFullYear()} | Leadseeder is not an official product published by LinkedIn ™</span>
             </div>
         </footer>
     )

@@ -34,8 +34,8 @@ export default function Features() {
             <div className="bg-linear-to-b absolute inset-0 -z-10 sm:inset-6 sm:rounded-b-3xl dark:block dark:to-[color-mix(in_oklab,var(--color-zinc-900)_75%,var(--color-background))]"></div>
             <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16 lg:space-y-20 dark:[--color-border:color-mix(in_oklab,var(--color-white)_10%,transparent)]">
                 <div className="relative z-10 mx-auto max-w-2xl space-y-6 text-center">
-                    <h2 className="text-balance text-4xl font-semibold lg:text-6xl">The foundation for AI</h2>
-                    <p>Lyra is evolving to be more than just the models. It supports an entire to the APIs and platforms helping developers and businesses innovate.</p>
+                    <h2 className="text-balance text-4xl font-semibold lg:text-6xl">Generate Leads in 4 easy steps with Leadseeder</h2>
+                    <p>LeedSeeder is evolving to be more than just a Chrome Extension. It supports an entire to the APIs and platforms helping marketer and businesses innovate.</p>
                 </div>
 
                 <div className="grid gap-12 sm:px-12 md:grid-cols-2 lg:gap-20 lg:px-0">
@@ -48,37 +48,37 @@ export default function Features() {
                             <AccordionTrigger>
                                 <div className="flex items-center gap-2 text-base">
                                     <Database className="size-4" />
-                                    Database Visualization
+                                    Import Prospects from various ways
                                 </div>
                             </AccordionTrigger>
-                            <AccordionContent>Lyra is evolving to be more than just the models. It supports an entire to the APIs and platforms helping developers and businesses innovate.</AccordionContent>
+                            <AccordionContent>Search for your target users on. Use Leadseeder chrome extension to import these prospects effortlessly into your dashboard. You can import prospects from Groups, Events and connections.</AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-2">
                             <AccordionTrigger>
                                 <div className="flex items-center gap-2 text-base">
                                     <Fingerprint className="size-4" />
-                                    Advanced Authentication
+                                    Open Dashboard and Create Campaign
                                 </div>
                             </AccordionTrigger>
-                            <AccordionContent>Lyra is evolving to be more than just the models. It supports an entire to the APIs and platforms helping developers and businesses innovate.</AccordionContent>
+                            <AccordionContent>Open the Leadseeder dashboard. Here, you can see all your imported prospects. To convert these prospects into leads, click on the "Create Campaign" button. You can see analytics of your campaigns in the Dashboard.</AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-3">
                             <AccordionTrigger>
                                 <div className="flex items-center gap-2 text-base">
                                     <IdCard className="size-4" />
-                                    Identity Management
+                                    Select List and Personalize Actions
                                 </div>
                             </AccordionTrigger>
-                            <AccordionContent>Lyra is evolving to be more than just the models. It supports an entire to the APIs and platforms helping developers and businesses innovate.</AccordionContent>
+                            <AccordionContent>Select a prospect list. Customize your automation sequence by adding actions like profile visits, connection requests, and personalized messages. Set delays between actions.</AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-4">
                             <AccordionTrigger>
                                 <div className="flex items-center gap-2 text-base">
                                     <ChartBarIncreasingIcon className="size-4" />
-                                    Analytics Dashboard
+                                    Launch and Automate
                                 </div>
                             </AccordionTrigger>
-                            <AccordionContent>Lyra is evolving to be more than just the models. It supports an entire to the APIs and platforms helping developers and businesses innovate.</AccordionContent>
+                            <AccordionContent>Click "Start Campaign" to launch. Now, you can enjoy a bowl of soup while Leadseeder handles all the manual tasks, boosting your efficiency and saves you dozens of hours.</AccordionContent>
                         </AccordionItem>
                     </Accordion>
 
