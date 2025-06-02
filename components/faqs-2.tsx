@@ -30,7 +30,7 @@ export default function FAQsTwo() {
             question: 'Do I need to keep my browser and laptop open while Leadseeder is up and running?',
             answer: 'Automation tools are software designed to automate certain tasks that can streamline your social media activity. Besides saving you time, It help you run personalized campaigns and analyse data to help you create better versions of your campaigns.',
         },
-        
+
     ]
 
     return (
@@ -60,7 +60,7 @@ export default function FAQsTwo() {
                     </Accordion>
 
                     <p className="text-muted-foreground mt-6 px-8">
-                        Can't find what you're looking for? Contact our{' '}
+                        Can&apos;t find what you&apos;re looking for? Contact our{' '}
                         <Link
                             href="#"
                             className="text-primary font-medium hover:underline">

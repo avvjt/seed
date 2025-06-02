@@ -8,7 +8,6 @@ import LogoCloud from "@/components/logo-cloud";
 import StatsSection from "@/components/stats";
 import TeamSection from "@/components/team";
 import WallOfLoveSection from "@/components/testimonials";
-import Image from "next/image";
 
 export default function Home() {
   return (
