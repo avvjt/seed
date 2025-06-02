@@ -17,8 +17,8 @@ export default function Home() {
     <LogoCloud />
     <Features/>
     <FeaturesCard/>
-    <IntegrationsSection/>
     <StatsSection/>
+    <IntegrationsSection/>
     <TeamSection/>
     <WallOfLoveSection/>
     <FAQsTwo/>

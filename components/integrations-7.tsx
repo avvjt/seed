@@ -8,7 +8,7 @@ import { InfiniteSlider } from '@/components/infinite-slider'
 export default function IntegrationsSection() {
     return (
         <section>
-            <div className="bg-muted dark:bg-background py-24 md:py-32">
+            <div className="bg-background dark:bg-background py-24 md:py-32">
                 <div className="mx-auto max-w-5xl px-6">
                     <div className="bg-muted/25 group relative mx-auto max-w-[22rem] items-center justify-between space-y-6 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] sm:max-w-md">
                         <div
@@ -99,7 +99,7 @@ export default function IntegrationsSection() {
                             </IntegrationCard>
                         </div>
                     </div>
-                    <div className="mx-auto mt-12 max-w-lg space-y-6 text-center">
+                    {/* <div className="mx-auto mt-12 max-w-lg space-y-6 text-center">
                         <h2 className="text-balance text-3xl font-semibold md:text-4xl">Integrate with your favorite tools</h2>
                         <p className="text-muted-foreground">Connect seamlessly with popular platforms and services to enhance your workflow.</p>
 
@@ -109,7 +109,7 @@ export default function IntegrationsSection() {
                             asChild>
                             <Link href="#">Get Started</Link>
                         </Button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>
