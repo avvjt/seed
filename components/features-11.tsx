@@ -65,7 +65,7 @@ export default function FeaturesCard() {
                     </Card>
                     <Card className="group p-6 shadow-zinc-950/5 sm:col-span-2 sm:rounded-none sm:rounded-bl-xl md:p-12">
                         <p className="mx-auto mb-12 max-w-md text-balance text-center text-lg font-semibold sm:text-2xl">LinkedIn Outreach Expert with
-                                    Top LinkedIn Auto mation</p>
+                            Top LinkedIn Auto mation</p>
 
                         <div className="flex justify-center gap-6">
                             <div className="inset-shadow-sm dark:inset-shadow-white/5 bg-muted/35 relative flex aspect-square size-16 items-center rounded-[7px] border p-3 shadow-lg ring dark:shadow-white/5 dark:ring-black">
@@ -77,41 +77,49 @@ export default function FeaturesCard() {
                             </div>
                         </div>
                     </Card>
+
+
+
                     <Card className="group relative shadow-zinc-950/5 sm:col-span-3 sm:rounded-none sm:rounded-br-xl">
                         <CardHeader className="p-6 md:p-12">
                             <p className="font-medium">Advanced tracking system</p>
                             <p className="text-muted-foreground mt-2 max-w-sm text-sm">Quick Automation lives a single hotkey away apps..</p>
                         </CardHeader>
+
+
                         <CardContent className="relative h-fit px-6 pb-6 md:px-12 md:pb-12">
                             <div className="grid grid-cols-4 gap-2 md:grid-cols-6">
                                 <div className="rounded-(--radius) aspect-square border border-dashed"></div>
                                 <div className="rounded-(--radius) bg-muted/50 flex aspect-square items-center justify-center border p-4">
-                                    <img
+                                    <Image
                                         className="m-auto size-8 invert dark:invert-0"
                                         src="https://oxymor-ns.tailus.io/logos/linear.svg"
                                         alt="Linear logo"
-                                        width="32"
-                                        height="32"
+                                        width={32}
+                                        height={32}
+                                        unoptimized // Required for external images
                                     />
                                 </div>
                                 <div className="rounded-(--radius) aspect-square border border-dashed"></div>
                                 <div className="rounded-(--radius) bg-muted/50 flex aspect-square items-center justify-center border p-4">
-                                    <img
+                                    <Image
                                         className="m-auto size-8 invert dark:invert-0"
                                         src="https://oxymor-ns.tailus.io/logos/netlify.svg"
                                         alt="Netlify logo"
-                                        width="32"
-                                        height="32"
+                                        width={32}
+                                        height={32}
+                                        unoptimized
                                     />
                                 </div>
                                 <div className="rounded-(--radius) aspect-square border border-dashed"></div>
                                 <div className="rounded-(--radius) bg-muted/50 flex aspect-square items-center justify-center border p-4">
-                                    <img
+                                    <Image
                                         className="m-auto size-8 invert dark:invert-0"
                                         src="https://oxymor-ns.tailus.io/logos/github.svg"
                                         alt="github logo"
-                                        width="32"
-                                        height="32"
+                                        width={32}
+                                        height={32}
+                                        unoptimized
                                     />
                                 </div>
                             </div>

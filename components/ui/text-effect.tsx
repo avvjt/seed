@@ -177,7 +177,8 @@ const createVariantsWithTransition = (
 ): Variants => {
   if (!transition) return baseVariants;
 
-  const { exit: _, ...mainTransition } = transition;
+  // Separate exit transition from the main transition properties
+  const { exit: exitTransition, ...mainTransition } = transition;
 
   return {
     ...baseVariants,
@@ -196,13 +197,13 @@ const createVariantsWithTransition = (
         ...(hasTransition(baseVariants.exit)
           ? baseVariants.exit.transition
           : {}),
-        ...mainTransition,
-        staggerDirection: -1,
+        ...mainTransition,       // Apply common transition properties
+        ...exitTransition,       // Apply exit-specific overrides
+        staggerDirection: -1,   // Ensure stagger reverses
       },
     },
   };
 };
-
 export function TextEffect({
   children,
   per = 'word',
