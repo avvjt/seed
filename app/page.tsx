@@ -18,7 +18,6 @@ export default function Home() {
     <FeaturesCard/>
     <StatsSection/>
     <IntegrationsSection/>
-    <TeamSection/>
     <WallOfLoveSection/>
     <FAQsTwo/>
     <FooterSection/>
