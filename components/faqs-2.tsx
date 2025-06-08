@@ -37,8 +37,7 @@ export default function FAQsTwo() {
         <section className="py-16 md:py-24">
             <div className="mx-auto max-w-5xl px-4 md:px-6">
                 <div className="mx-auto max-w-xl text-center">
-                    <h2 className="text-balance text-3xl font-bold md:text-4xl lg:text-5xl">Frequently Asked Questions</h2>
-                    <p className="text-muted-foreground mt-4 text-balance">Discover quick and comprehensive answers to common questions about our platform, services, and features.</p>
+                    <h2 className="text-balance text-3xl font-bold md:text-4xl lg:text-5xl">About Leadseeder</h2>
                 </div>
 
                 <div className="mx-auto mt-12 max-w-xl">
