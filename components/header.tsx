@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import React from 'react'
 import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
+import { ModeToggle } from './mode-toggle'
 
 const menuItems = [
     { name: 'Pricing', href: '/pricing' },
@@ -120,6 +121,8 @@ export const HeroHeader = () => {
                                         <span>Get Started</span>
                                     </Link>
                                 </Button>
+
+                                <ModeToggle/>
                             </div>
                         </div>
                     </div>
