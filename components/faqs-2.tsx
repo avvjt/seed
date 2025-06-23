@@ -88,25 +88,110 @@ export default function FAQsTwo() {
         },
     ]
 
+
+const features = [
+        {
+            id: 'features-1',
+            question: 'What are Lead Generation Automation Tools?',
+            answer: 'Automation tools are software designed to automate certain tasks that can streamline your social media activity. Besides saving you time, It help you run personalized campaigns and analyse data to help you create better versions of your campaigns.',
+        },
+        {
+            id: 'features-2',
+            question: 'What is Leadseeder?',
+            answer: 'Automation tools are software designed to automate certain tasks that can streamline your social media activity. Besides saving you time, It help you run personalized campaigns and analyse data to help you create better versions of your campaigns.',
+        },
+        {
+            id: 'features-3',
+            question: 'An I get a demo of Leadseeder and get help with setup?',
+            answer: 'Automation tools are software designed to automate certain tasks that can streamline your social media activity. Besides saving you time, It help you run personalized campaigns and analyse data to help you create better versions of your campaigns.',
+        },
+        {
+            id: 'features-4',
+            question: 'What results can I expect from Leadseeder?',
+            answer: 'Automation tools are software designed to automate certain tasks that can streamline your social media activity. Besides saving you time, It help you run personalized campaigns and analyse data to help you create better versions of your campaigns.',
+        },
+        {
+            id: 'features-5',
+            question: 'Do I need to keep my browser and laptop open while Leadseeder is up and running?',
+            answer: 'Automation tools are software designed to automate certain tasks that can streamline your social media activity. Besides saving you time, It help you run personalized campaigns and analyse data to help you create better versions of your campaigns.',
+        },
+    ]
+
+
+    const pricing = [
+        {
+            id: 'pricing-1',
+            question: 'What are Lead Generation Automation Tools?',
+            answer: 'Automation tools are software designed to automate certain tasks that can streamline your social media activity. Besides saving you time, It help you run personalized campaigns and analyse data to help you create better versions of your campaigns.',
+        },
+        {
+            id: 'pricing-2',
+            question: 'What is Leadseeder?',
+            answer: 'Automation tools are software designed to automate certain tasks that can streamline your social media activity. Besides saving you time, It help you run personalized campaigns and analyse data to help you create better versions of your campaigns.',
+        },
+        {
+            id: 'pricing-3',
+            question: 'An I get a demo of Leadseeder and get help with setup?',
+            answer: 'Automation tools are software designed to automate certain tasks that can streamline your social media activity. Besides saving you time, It help you run personalized campaigns and analyse data to help you create better versions of your campaigns.',
+        },
+        {
+            id: 'pricing-4',
+            question: 'What results can I expect from Leadseeder?',
+            answer: 'Automation tools are software designed to automate certain tasks that can streamline your social media activity. Besides saving you time, It help you run personalized campaigns and analyse data to help you create better versions of your campaigns.',
+        },
+        {
+            id: 'pricing-5',
+            question: 'Do I need to keep my browser and laptop open while Leadseeder is up and running?',
+            answer: 'Automation tools are software designed to automate certain tasks that can streamline your social media activity. Besides saving you time, It help you run personalized campaigns and analyse data to help you create better versions of your campaigns.',
+        },
+    ]
+
+
+    const privacy = [
+        {
+            id: 'privacy-1',
+            question: 'What are Lead Generation Automation Tools?',
+            answer: 'Automation tools are software designed to automate certain tasks that can streamline your social media activity. Besides saving you time, It help you run personalized campaigns and analyse data to help you create better versions of your campaigns.',
+        },
+        {
+            id: 'privacy-2',
+            question: 'What is Leadseeder?',
+            answer: 'Automation tools are software designed to automate certain tasks that can streamline your social media activity. Besides saving you time, It help you run personalized campaigns and analyse data to help you create better versions of your campaigns.',
+        },
+        {
+            id: 'privacy-3',
+            question: 'An I get a demo of Leadseeder and get help with setup?',
+            answer: 'Automation tools are software designed to automate certain tasks that can streamline your social media activity. Besides saving you time, It help you run personalized campaigns and analyse data to help you create better versions of your campaigns.',
+        },
+        {
+            id: 'privacy-4',
+            question: 'What results can I expect from Leadseeder?',
+            answer: 'Automation tools are software designed to automate certain tasks that can streamline your social media activity. Besides saving you time, It help you run personalized campaigns and analyse data to help you create better versions of your campaigns.',
+        },
+        {
+            id: 'privacy-5',
+            question: 'Do I need to keep my browser and laptop open while Leadseeder is up and running?',
+            answer: 'Automation tools are software designed to automate certain tasks that can streamline your social media activity. Besides saving you time, It help you run personalized campaigns and analyse data to help you create better versions of your campaigns.',
+        },
+    ]
+
     const faqSections = [
         { title: 'About Leadseeder', items: about },
         { title: 'How It Works', items: work },
-        { title: 'Billing', items: billing }
+        { title: 'Billing', items: billing },
+        { title: 'Product & Features', items: features },
+        { title: 'Pricing and Plans', items: pricing },
+        { title: 'Privacy and Security', items: privacy }
     ]
 
     return (
         <section className="py-16 md:py-24">
             <div className="mx-auto max-w-5xl px-4 md:px-6">
-                <div className="mx-auto max-w-xl text-center">
-                    <h2 className="text-balance text-3xl font-bold md:text-4xl lg:text-4xl">
-                        Frequently Asked Questions
-                    </h2>
-                </div>
 
                 <div className="mt-12 space-y-16">
                     {faqSections.map((section) => (
                         <div key={section.title}>
-                            <h3 className="text-left text-xl font-bold md:text-2xl">
+                            <h3 className="text-left text-3xl font-bold lg:text-4xl">
                                 {section.title}
                             </h3>
                             
@@ -121,11 +206,11 @@ export default function FAQsTwo() {
                                         value={item.id}
                                         className="border-b border-dashed py-4"
                                     >
-                                        <AccordionTrigger className="cursor-pointer justify-start text-left text-base hover:no-underline px-0 [&[data-state=open]>svg]:rotate-180">
+                                        <AccordionTrigger className="cursor-pointer justify-start text-left text-2xl text-bold hover:no-underline px-0 [&[data-state=open]>svg]:rotate-180">
                                             <span className="mr-2 flex-1 text-left">{item.question}</span>
                                         </AccordionTrigger>
                                         <AccordionContent className="px-0">
-                                            <p className="text-base">{item.answer}</p>
+                                            <p className="text-lg">{item.answer}</p>
                                         </AccordionContent>
                                     </AccordionItem>
                                 ))}

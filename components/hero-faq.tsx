@@ -39,7 +39,7 @@ export default function HeroFAQ() {
                                 speedSegment={0.3}
                                 as="h1"
                                 className="text-balance text-5xl font-medium md:text-6xl">
-                                Healthier daily routine
+                                Frequently Asked Questions
                             </TextEffect>
                             <TextEffect
                                 per="line"
@@ -48,7 +48,7 @@ export default function HeroFAQ() {
                                 delay={0.5}
                                 as="p"
                                 className="mx-auto mt-6 max-w-2xl text-pretty text-lg">
-                                Tailwindcss highly customizable components for building modern websites and applications that look and feel the way you mean it.
+                                See the most common billing, service, features, and other questions users like you had about using Aimfox effectively.
                             </TextEffect>
 
                             {/* <AnimatedGroup
