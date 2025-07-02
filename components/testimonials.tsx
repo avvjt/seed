@@ -102,14 +102,14 @@ export default function WallOfLoveSection() {
                         <h2 className="text-title text-3xl font-semibold">Loved by the Community</h2>
                         <p className="text-body mt-6">See how Leadseeder helps other increase revenue</p>
                     </div>
-                    <div className="mt-8 grid gap-3 sm:grid-cols-2 md:mt-12 lg:grid-cols-3">
+                    <div className="mt-8 grid gap-3 sm:grid-cols-2 md:mt-12 lg:grid-cols-3 auto-rows-fr">
                         {testimonialChunks.map((chunk, chunkIndex) => (
                             <div
                                 key={chunkIndex}
-                                className="space-y-3">
+                                className="flex flex-col space-y-3 h-full">
                                 {chunk.map(({ name, role, quote, image }, index) => (
-                                    <Card key={index}>
-                                        <CardContent className="grid grid-cols-[auto_1fr] gap-3 pt-6">
+                                    <Card key={index} className="flex-1 h-full flex flex-col">
+                                        <CardContent className="grid grid-cols-[auto_1fr] gap-3 flex-1">
                                             <Avatar className="size-9">
                                                 <AvatarImage
                                                     alt={name}
@@ -121,12 +121,12 @@ export default function WallOfLoveSection() {
                                                 <AvatarFallback>ST</AvatarFallback>
                                             </Avatar>
 
-                                            <div>
+                                            <div className="flex flex-col min-h-0 flex-1">
                                                 <h3 className="font-medium">{name}</h3>
 
                                                 <span className="text-muted-foreground block text-sm tracking-wide">{role}</span>
 
-                                                <blockquote className="mt-3">
+                                                <blockquote className="mt-3 flex-1">
                                                     <p className="text-gray-700 dark:text-gray-300">{quote}</p>
                                                 </blockquote>
                                             </div>

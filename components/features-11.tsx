@@ -27,13 +27,13 @@ export default function FeaturesCard() {
                                     width={1207}
                                     height={929}
                                 />
-                                <Image
+                                {/* <Image
                                     src="/mail2-light.png"
                                     className="shadow dark:hidden"
                                     alt="payments illustration light"
                                     width={1207}
                                     height={929}
-                                />
+                                /> */}
                             </div>
                         </div>
                     </Card>

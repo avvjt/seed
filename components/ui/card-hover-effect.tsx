@@ -3,6 +3,8 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
+import { BackgroundGradient } from "./background-gradient";
+
 export const HoverEffect = ({
   items,
   className,
@@ -14,49 +16,43 @@ export const HoverEffect = ({
   }[];
   className?: string;
 }) => {
-  let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10",
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-10",
         className
       )}
+      style={{ 
+        gridAutoRows: '1fr',
+        alignItems: 'stretch' // Ensures items stretch to fill grid area
+      }}
     >
-      {items.map((item, idx) => (
+      {items.map((item) => (
         <a
-          href={item?.link}
-          key={item?.link}
-          className="relative group block p-2 h-full w-full"
-          onMouseEnter={() => setHoveredIndex(idx)}
-          onMouseLeave={() => setHoveredIndex(null)}
+          href={item.link}
+          key={item.link}
+          className=" w-full h-full flex" // Added h-full and flex
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <AnimatePresence>
-            {hoveredIndex === idx && (
-              <motion.span
-                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block rounded-3xl"
-                layoutId="hoverBackground"
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: 1,
-                  transition: { duration: 0.15 },
-                }}
-                exit={{
-                  opacity: 0,
-                  transition: { duration: 0.15, delay: 0.2 },
-                }}
-              />
-            )}
-          </AnimatePresence>
-          <Card>
-            <CardTitle>{item.title}</CardTitle>
-            <CardDescription>{item.description}</CardDescription>
-          </Card>
+          <BackgroundGradient className="w-full h-full flex flex-col rounded-3xl p-6 bg-white dark:bg-zinc-900">
+            <div className="flex-1 flex flex-col">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                {item.title}
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 text-sm flex-1">
+                {item.description}
+              </p>
+            </div>
+          </BackgroundGradient>
         </a>
       ))}
     </div>
   );
 };
+
+
+
 
 export const Card = ({
   className,

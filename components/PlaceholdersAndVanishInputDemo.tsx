@@ -1,8 +1,7 @@
 "use client";
 
-import { PlaceholdersAndVanishInput } from "./ui/placeholders-and-vanish-input";
-
-
+import React from "react";
+import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
 
 export function PlaceholdersAndVanishInputDemo() {
   const placeholders = [
@@ -20,8 +19,9 @@ export function PlaceholdersAndVanishInputDemo() {
     e.preventDefault();
     console.log("submitted");
   };
+
   return (
-    <div className="h-[40rem] flex flex-col justify-center  items-center px-4">
+    <div className="h-[40rem] flex flex-col justify-center items-center px-4">
       <h2 className="mb-10 sm:mb-20 text-xl text-center sm:text-5xl dark:text-white text-black">
         Ask Aceternity UI Anything
       </h2>

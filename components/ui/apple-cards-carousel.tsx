@@ -5,8 +5,7 @@ import React, {
   useState,
   createContext,
   useContext,
-  RefObject,
-  MutableRefObject,
+  useCallback,
 } from "react";
 import {
   IconArrowNarrowLeft,
@@ -14,153 +13,185 @@ import {
   IconX,
 } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import Image, { ImageProps } from "next/image";
-import { useOutsideClick } from "@/hooks/use-outside-click";
 
-interface CarouselProps {
-  items: React.ReactElement[];
-  initialScroll?: number;
-}
-
-type Card = {
+const CarouselContext = createContext<any>({});
+type CardItem = {
   src: string;
   title: string;
   category: string;
   content: React.ReactNode;
 };
 
-export const CarouselContext = createContext<{
-  onCardClose: (index: number) => void;
-  currentIndex: number;
-}>({
-  onCardClose: () => {},
-  currentIndex: 0,
-});
-
-export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
-  const carouselRef = React.useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = React.useState(false);
-  const [canScrollRight, setCanScrollRight] = React.useState(true);
+export const Carousel = ({ items }: { items: React.ReactNode[] }) => {
+  const carouselRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const animationRef = useRef<number | null>(null);
+  const lastScrollTime = useRef<number>(0);
+  const scrollSpeedRef = useRef<number>(1.5);
 
+   // Responsive card dimensions (SAFE)
+   const getCardDimensions = () => {
+    if (typeof window === "undefined") {
+      return { width: 384, gap: 32 };
+    }
+    const isMobile = window.innerWidth < 768;
+    return {
+      width: isMobile ? 230 : 384,
+      gap: isMobile ? 16 : 32,
+    };
+  };
+
+  // Initialize and update dimensions
+  useEffect(() => {
+    setDimensions(getCardDimensions());
+    
+    const handleResize = () => {
+      setDimensions(getCardDimensions());
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const [dimensions, setDimensions] = useState(getCardDimensions());
+  
+  // Handle resize
+  useEffect(() => {
+    const handleResize = () => {
+      setDimensions(getCardDimensions());
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Clone items for infinite effect
+  const originalLength = items.length;
+  const clonedItems = [...items, ...items, ...items];
+
+  // Set initial scroll position
   useEffect(() => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft = initialScroll;
-      checkScrollability();
+      const { width, gap } = dimensions;
+      carouselRef.current.scrollLeft = (width + gap) * originalLength;
     }
-  }, [initialScroll]);
+  }, [dimensions, originalLength]);
 
-  const checkScrollability = () => {
-    if (carouselRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth);
+  // Infinite scroll logic
+
+  // Smooth auto-scroll with requestAnimationFrame
+  const autoScroll = useCallback(() => {
+    if (!carouselRef.current) return;
+    
+    const now = Date.now();
+    if (now - lastScrollTime.current < 16) {
+      animationRef.current = requestAnimationFrame(autoScroll);
+      return;
     }
-  };
+    
+    lastScrollTime.current = now;
+    carouselRef.current.scrollBy({ 
+      left: scrollSpeedRef.current, 
+      behavior: "smooth" 
+    });
+    
+    animationRef.current = requestAnimationFrame(autoScroll);
+  }, []);
 
-  const scrollLeft = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -300, behavior: "smooth" });
-    }
-  };
+  // Start/stop auto-scroll on hover
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
 
-  const scrollRight = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
-    }
-  };
+    const handleMouseEnter = () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = null;
+      }
+    };
 
-  const handleCardClose = (index: number) => {
-    if (carouselRef.current) {
-      const cardWidth = isMobile() ? 230 : 384;
-      const gap = isMobile() ? 4 : 8;
-      const scrollPosition = (cardWidth + gap) * (index + 1);
-      carouselRef.current.scrollTo({
-        left: scrollPosition,
-        behavior: "smooth",
-      });
-      setCurrentIndex(index);
-    }
-  };
+    const handleMouseLeave = () => {
+      if (!animationRef.current) {
+        animationRef.current = requestAnimationFrame(autoScroll);
+      }
+    };
 
-  const isMobile = () => {
-    return typeof window !== "undefined" && window.innerWidth < 768;
-  };
+    carousel.addEventListener('mouseenter', handleMouseEnter);
+    carousel.addEventListener('mouseleave', handleMouseLeave);
+    
+    // Start auto-scroll
+    animationRef.current = requestAnimationFrame(autoScroll);
+    
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+      carousel.removeEventListener('mouseenter', handleMouseEnter);
+      carousel.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, [autoScroll]);
+  const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
+  const handleInfiniteScroll = useCallback(() => {
+    if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+  
+    scrollTimeout.current = setTimeout(() => {
+      if (!carouselRef.current) return;
+      const { scrollLeft } = carouselRef.current;
+      const { width, gap } = dimensions;
+      const singleSetWidth = (width + gap) * originalLength;
+  
+      if (scrollLeft >= singleSetWidth * 2) {
+        carouselRef.current.scrollLeft = scrollLeft - singleSetWidth;
+      } else if (scrollLeft < singleSetWidth) {
+        carouselRef.current.scrollLeft = scrollLeft + singleSetWidth;
+      }
+  
+      const newIndex = Math.round(
+        (carouselRef.current.scrollLeft - singleSetWidth) / (width + gap)
+      ) % originalLength;
+      setCurrentIndex((newIndex + originalLength) % originalLength);
+    }, 100);
+  }, [dimensions, originalLength]);
+  
+  useEffect(() => {
+    return () => {
+      if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+    };
+  }, []);
+  
   return (
-    <CarouselContext.Provider
-      value={{ onCardClose: handleCardClose, currentIndex }}
-    >
-      <div className="relative w-full">
-        <div
-          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none] md:py-20"
-          ref={carouselRef}
-          onScroll={checkScrollability}
-        >
-          <div
-            className={cn(
-              "absolute right-0 z-[1000] h-auto w-[5%] overflow-hidden bg-gradient-to-l",
-            )}
-          ></div>
-
-          <div
-            className={cn(
-              "flex flex-row justify-start gap-4 pl-4",
-              "mx-auto max-w-7xl",
-            )}
-          >
-            {items.map((item, index) => (
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  transition: {
-                    duration: 0.5,
-                    delay: 0.2 * index,
-                    ease: "easeOut",
-                    once: true,
-                  },
-                }}
-                key={"card" + index}
-                className="rounded-3xl last:pr-[5%] md:last:pr-[33%]"
-              >
-                {item}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        <div className="mr-10 flex justify-end gap-2">
-          <button
-            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 disabled:opacity-50"
-            onClick={scrollLeft}
-            disabled={!canScrollLeft}
-          >
-            <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
-          </button>
-          <button
-            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 disabled:opacity-50"
-            onClick={scrollRight}
-            disabled={!canScrollRight}
-          >
-            <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
-          </button>
+    <div className="relative w-full">
+      <div
+        className="flex w-full overflow-x-scroll overscroll-x-contain scroll-smooth py-10 [scrollbar-width:none] md:py-20"
+        ref={carouselRef}
+        onScroll={handleInfiniteScroll}
+      >
+        <div className="flex flex-row justify-start gap-4 pl-4 mx-auto max-w-7xl">
+          {clonedItems.map((item, idx) => (
+            <div key={idx} className="rounded-3xl">
+              {item}
+            </div>
+          ))}
         </div>
       </div>
-    </CarouselContext.Provider>
+    </div>
   );
 };
 
+// ... rest of your components (Card, BlurImage) remain the same ...
+
+
+
+// --- Card Component ---
 export const Card = ({
   card,
   index,
   layout = false,
 }: {
-  card: Card;
+  card: CardItem;
   index: number;
   layout?: boolean;
 }) => {
@@ -168,30 +199,41 @@ export const Card = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const { onCardClose, currentIndex } = useContext(CarouselContext);
 
+  // Close on Escape
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         handleClose();
       }
     }
-
     if (open) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
+    // eslint-disable-next-line
   }, [open]);
 
-  // Fixed useOutsideClick usage
-  useOutsideClick(containerRef as RefObject<HTMLElement>, () => handleClose());
+  // Outside click
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        handleClose();
+      }
+    }
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+    // eslint-disable-next-line
+  }, [open]);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
+  const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
     onCardClose(index);
@@ -262,7 +304,6 @@ export const Card = ({
         <BlurImage
           src={card.src}
           alt={card.title}
-          fill
           className="absolute inset-0 z-10 object-cover"
         />
       </motion.button>
@@ -297,3 +338,4 @@ export const BlurImage = ({
     />
   );
 };
+

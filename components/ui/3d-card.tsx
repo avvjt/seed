@@ -45,6 +45,7 @@ export const CardContainer = ({
     setIsMouseEntered(false);
     containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
   };
+
   return (
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
       <div
@@ -86,7 +87,7 @@ export const CardBody = ({
   return (
     <div
       className={cn(
-        "h-96 w-96 [transform-style:preserve-3d]  [&>*]:[transform-style:preserve-3d]",
+        "h-96 w-96 [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]",
         className
       )}
     >
@@ -95,8 +96,31 @@ export const CardBody = ({
   );
 };
 
-export const CardItem = ({
-  as: Tag = "div",
+// Fixed CardItem with proper polymorphic typing
+type CardItemProps<T extends React.ElementType> = {
+  as?: T;
+  children: React.ReactNode;
+  className?: string;
+  translateX?: number | string;
+  translateY?: number | string;
+  translateZ?: number | string;
+  rotateX?: number | string;
+  rotateY?: number | string;
+  rotateZ?: number | string;
+} & Omit<React.ComponentPropsWithoutRef<T>, keyof {
+  as?: T;
+  children: React.ReactNode;
+  className?: string;
+  translateX?: number | string;
+  translateY?: number | string;
+  translateZ?: number | string;
+  rotateX?: number | string;
+  rotateY?: number | string;
+  rotateZ?: number | string;
+}>;
+
+export const CardItem = <T extends React.ElementType = "div">({
+  as,
   children,
   className,
   translateX = 0,
@@ -106,19 +130,8 @@ export const CardItem = ({
   rotateY = 0,
   rotateZ = 0,
   ...rest
-}: {
-  as?: React.ElementType;
-  children: React.ReactNode;
-  className?: string;
-  translateX?: number | string;
-  translateY?: number | string;
-  translateZ?: number | string;
-  rotateX?: number | string;
-  rotateY?: number | string;
-  rotateZ?: number | string;
-  [key: string]: any;
-}) => {
-  const ref = useRef<HTMLDivElement>(null);
+}: CardItemProps<T>) => {
+  const ref = useRef<any>(null);
   const [isMouseEntered] = useMouseEnter();
 
   useEffect(() => {
@@ -134,14 +147,16 @@ export const CardItem = ({
     }
   };
 
-  return (
-    <Tag
-      ref={ref}
-      className={cn("w-fit transition duration-200 ease-linear", className)}
-      {...rest}
-    >
-      {children}
-    </Tag>
+  const Component = as || "div";
+
+  return React.createElement(
+    Component,
+    {
+      ref,
+      className: cn("w-fit transition duration-200 ease-linear", className),
+      ...rest,
+    },
+    children
   );
 };
 

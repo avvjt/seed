@@ -21,7 +21,9 @@ import { HoverBorderGradientDemo } from "@/components/HoverBorderGradientDemo";
 import IntegrationsSection from "@/components/integrations-7";
 
 
+
 import LogoCloud from "@/components/logo-cloud";
+import Logo from "@/components/logos/Logo";
 import { MacbookScrollDemo } from "@/components/MacbookScrollDemo";
 import { PlaceholdersAndVanishInputDemo } from "@/components/PlaceholdersAndVanishInputDemo";
 import { PointerHighlightDemo } from "@/components/PointerHighlightDemo";
@@ -49,37 +51,40 @@ import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 export default function Home() {
   return (
     <>
+    
       <HeroSection />
-      <BackgroundLinesDemo/>
-      <AnimatedTestimonials/>
+      <MacbookScrollDemo />
+      {/* <BackgroundLinesDemo/> */}
+      {/* <AnimatedTestimonials/> */}
       <Auroraa/>
-      <ThreeDCard/>
-      <ThreeDM/>
-      <PinContainer>
+      <Logo />
+      {/* <ThreeDCard/> */}
+      {/* <ThreeDM/>   */}
+      {/* <PinContainer>
         <h1>Contact us</h1>
-      </PinContainer>
-      <AppleCardsCarousel/>
-      <BackgroundCollision/>
-      <BackgroundGradientDemo/>
+      </PinContainer> */}
+      <AppleCardsCarousel />
+      {/* <BackgroundCollision/> */}
+      {/* <BackgroundGradientDemo/> */}
       
       {/* <CanvasRevealEffectDemo/> --> hav to resolve the error */}
 
-      <CardHoverEffectDemo/>
-      <ColourfulTextDemo/>
-      <CompareDemo/>
+      {/* <CardHoverEffectDemo/> */}
+      {/* <ColourfulTextDemo/> */}
+      {/* <CompareDemo/> */}
       <CoverDemo/>
-      <HeroScrollDemo/>
-      <FlipWordsDemo/>
-      <FloatingDockDemo/>
-      <GoogleGeminiEffectDemo/>
-      <HoverBorderGradientDemo/>
-      <MacbookScrollDemo/>
-      <PlaceholdersAndVanishInputDemo/>
-      <PointerHighlightDemo/>
-      <SidebarDemo/>
-      <SVGMaskEffectDemo/>
-      <TextGenerateEffectDemo/>
-      <TextHoverEffectDemo/>
+      {/* <HeroScrollDemo/> */}
+      {/* <FlipWordsDemo/> */}
+      {/* <FloatingDockDemo/> */}
+      {/* <GoogleGeminiEffectDemo/> */}
+      {/* <HoverBorderGradientDemo/> */}
+      {/* <MacbookScrollDemo/> */}
+      {/* <PlaceholdersAndVanishInputDemo/>  */}
+      {/* <PointerHighlightDemo/> */}
+      {/* <SidebarDemo/> */}
+      {/* <SVGMaskEffectDemo/> */}
+      {/* <TextGenerateEffectDemo/> */}
+      {/* <TextHoverEffectDemo/> */}
       <TimelineDemo/>
       
 
@@ -89,13 +94,13 @@ export default function Home() {
 
       
 
-      <LogoCloud />
-      <Features />
-      <FeaturesCard />
+      {/* <LogoCloud /> */}
+      {/* <Features /> */}
+      {/* <FeaturesCard /> */}
       <StatsSection />
       <IntegrationsSection />
       <WallOfLoveSection />
-      <FAQsTwo />
+      {/* <FAQsTwo /> */}
       <FooterSection />
     </>
   );
