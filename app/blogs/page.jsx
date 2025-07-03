@@ -1,3 +1,5 @@
+import FooterSection from "@/components/footer";
+
 // components/BlogHero.js
 const BlogHero = () => (
   <section className="relative bg-gradient-to-br  dark:bg-[oklch(0.147_0.004_49.25)] py-8 lg:py-12">
@@ -123,6 +125,7 @@ export default function Blogs() {
       </main>
       <BlogPreFooter />
       {/* Attach your <FooterSection /> here */}
+      <FooterSection/>
     </>
   );
 }

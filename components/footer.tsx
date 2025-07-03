@@ -24,8 +24,13 @@ const footerLinks = [
   { 
     title: "Help Center", 
     href: "https://intercom.help/leadseeder/en/",
-    external: true  // Add this flag for external links
+    external: true
   },
+  { 
+    title: "Feature Request", 
+    href: "https://leadseeder.canny.io/feature-requests",
+    external: true
+  }
 
 
 ];
@@ -35,22 +40,26 @@ const dockLinks = [
     title: "X (Twitter)",
     icon: <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
     href: "https://x.com/Leadseeder", // Replace with your Twitter URL
+    external: true
   },
   {
     title: "Facebook",
     icon: <IconBrandFacebook className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
     href: "https://www.facebook.com/Leadseeder", // Replace with your Facebook URL
+    external: true
   },
   
   {
     title: "YouTube",
     icon: <IconBrandYoutube className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
     href: "https://www.youtube.com/@Leadseeder/videos", // Replace with your YouTube URL
+    external: true
   },
   {
     title: "Instagram",
     icon: <IconBrandInstagram className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
     href: "https://www.instagram.com/Leadseeder", // Replace with your Instagram URL
+    external: true
   },
 ];
 

@@ -19,9 +19,6 @@ import HeroSection from "@/components/hero-section";
 import { HeroScrollDemo } from "@/components/HeroScrollDemo";
 import { HoverBorderGradientDemo } from "@/components/HoverBorderGradientDemo";
 import IntegrationsSection from "@/components/integrations-7";
-
-
-
 import LogoCloud from "@/components/logo-cloud";
 import Logo from "@/components/logos/Logo";
 import { MacbookScrollDemo } from "@/components/MacbookScrollDemo";
@@ -31,11 +28,9 @@ import { SidebarDemo } from "@/components/SidebarDemo";
 import StatsSection from "@/components/stats";
 import { SVGMaskEffectDemo } from "@/components/SVGMaskEffectDemo";
 import TestimonialSection from "@/components/Testimonial";
-
 import WallOfLoveSection from "@/components/testimonials";
 import { TextGenerateEffectDemo } from "@/components/TextGenerateEffectDemo";
 import { TextHoverEffectDemo } from "@/components/TextHoverEffectDemo";
-
 import { ThreeDCard } from "@/components/ThreeDCard";
 import { ThreeDM } from "@/components/ThreeDM";
 import { TimelineDemo } from "@/components/TimelineDemo";
@@ -45,19 +40,15 @@ import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 
 
 
-
-
-
 export default function Home() {
   return (
     <>
-    
       <HeroSection />
       <MacbookScrollDemo />
       {/* <BackgroundLinesDemo/> */}
       {/* <AnimatedTestimonials/> */}
       <Auroraa/>
-      <Logo />
+      <LogoCloud/>
       {/* <ThreeDCard/> */}
       {/* <ThreeDM/>   */}
       {/* <PinContainer>
@@ -66,9 +57,7 @@ export default function Home() {
       <AppleCardsCarousel />
       {/* <BackgroundCollision/> */}
       {/* <BackgroundGradientDemo/> */}
-      
       {/* <CanvasRevealEffectDemo/> --> hav to resolve the error */}
-
       {/* <CardHoverEffectDemo/> */}
       {/* <ColourfulTextDemo/> */}
       {/* <CompareDemo/> */}
@@ -86,14 +75,6 @@ export default function Home() {
       {/* <TextGenerateEffectDemo/> */}
       {/* <TextHoverEffectDemo/> */}
       <TimelineDemo/>
-      
-
-
-      
-    
-
-      
-
       {/* <LogoCloud /> */}
       {/* <Features /> */}
       {/* <FeaturesCard /> */}
