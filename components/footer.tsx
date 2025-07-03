@@ -3,12 +3,10 @@
 import React from "react";
 import Link from "next/link";
 import {
-  IconBrandGithub,
+  IconBrandFacebook, 
   IconBrandX,
-  IconExchange,
-  IconHome,
-  IconNewSection,
-  IconTerminal2,
+  IconBrandYoutube,
+  IconBrandInstagram
 } from "@tabler/icons-react";
 
 import { FloatingDock } from "@/components/ui/floating-dock";
@@ -18,54 +16,41 @@ import { PointerHighlight } from "./ui/pointer-highlight";
 const footerLinks = [
   { title: "Pricing", href: "#" },
   { title: "Faq", href: "#" },
-  { title: "Blogs", href: "#" },
+  { title: "Blogs", href: "/blogs" },
   { title: "Book a call", href: "#" },
   { title: "Help", href: "#" },
-  { title: "About", href: "#" },
+  { title: "Terms & Conditions ", href: "/terms" },
+  { title: "Privacy Policy", href: "/privacy" },
+  { 
+    title: "Help Center", 
+    href: "https://intercom.help/leadseeder/en/",
+    external: true  // Add this flag for external links
+  },
+
+
 ];
 
 const dockLinks = [
   {
-    title: "Home",
-    icon: <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-    href: "#",
-  },
-  {
-    title: "Products",
-    icon: <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-    href: "#",
-  },
-  {
-    title: "Components",
-    icon: <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-    href: "#",
-  },
-  {
-    title: "Aceternity UI",
-    icon: (
-      <img
-        src="https://assets.aceternity.com/logo-dark.png"
-        width={20}
-        height={20}
-        alt="Aceternity Logo"
-      />
-    ),
-    href: "#",
-  },
-  {
-    title: "Changelog",
-    icon: <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-    href: "#",
-  },
-  {
-    title: "Twitter",
+    title: "X (Twitter)",
     icon: <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-    href: "#",
+    href: "https://x.com/Leadseeder", // Replace with your Twitter URL
   },
   {
-    title: "GitHub",
-    icon: <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-    href: "#",
+    title: "Facebook",
+    icon: <IconBrandFacebook className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+    href: "https://www.facebook.com/Leadseeder", // Replace with your Facebook URL
+  },
+  
+  {
+    title: "YouTube",
+    icon: <IconBrandYoutube className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+    href: "https://www.youtube.com/@Leadseeder/videos", // Replace with your YouTube URL
+  },
+  {
+    title: "Instagram",
+    icon: <IconBrandInstagram className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+    href: "https://www.instagram.com/Leadseeder", // Replace with your Instagram URL
   },
 ];
 
