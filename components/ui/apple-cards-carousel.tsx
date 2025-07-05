@@ -5,16 +5,10 @@ import React, {
   useState,
   createContext,
   useContext,
-  useCallback,
 } from "react";
-import {
-  IconArrowNarrowLeft,
-  IconArrowNarrowRight,
-  IconX,
-} from "@tabler/icons-react";
+import { IconX } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import Image, { ImageProps } from "next/image";
 
 const CarouselContext = createContext<any>({});
 type CardItem = {
@@ -26,166 +20,48 @@ type CardItem = {
 
 export const Carousel = ({ items }: { items: React.ReactNode[] }) => {
   const carouselRef = useRef<HTMLDivElement>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const animationRef = useRef<number | null>(null);
-  const lastScrollTime = useRef<number>(0);
-  const scrollSpeedRef = useRef<number>(1.5);
-
-   // Responsive card dimensions (SAFE)
-   const getCardDimensions = () => {
-    if (typeof window === "undefined") {
-      return { width: 384, gap: 32 };
-    }
-    const isMobile = window.innerWidth < 768;
-    return {
-      width: isMobile ? 230 : 384,
-      gap: isMobile ? 16 : 32,
-    };
-  };
-
-  // Initialize and update dimensions
-  useEffect(() => {
-    setDimensions(getCardDimensions());
-    
-    const handleResize = () => {
-      setDimensions(getCardDimensions());
-    };
-    
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const [dimensions, setDimensions] = useState(getCardDimensions());
-  
-  // Handle resize
-  useEffect(() => {
-    const handleResize = () => {
-      setDimensions(getCardDimensions());
-    };
-    
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // Clone items for infinite effect
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = useState({ width: 384, gap: 32 });
   const originalLength = items.length;
-  const clonedItems = [...items, ...items, ...items];
 
-  // Set initial scroll position
+  // Responsive card dimensions
   useEffect(() => {
-    if (carouselRef.current) {
-      const { width, gap } = dimensions;
-      carouselRef.current.scrollLeft = (width + gap) * originalLength;
-    }
-  }, [dimensions, originalLength]);
+    const updateDimensions = () => {
+      if (typeof window === "undefined") return;
+      const isMobile = window.innerWidth < 768;
+      setDimensions({
+        width: isMobile ? 230 : 384,
+        gap: isMobile ? 16 : 32,
+      });
+    };
 
-  // Infinite scroll logic
-
-  // Smooth auto-scroll with requestAnimationFrame
-  const autoScroll = useCallback(() => {
-    if (!carouselRef.current) return;
-    
-    const now = Date.now();
-    if (now - lastScrollTime.current < 16) {
-      animationRef.current = requestAnimationFrame(autoScroll);
-      return;
-    }
-    
-    lastScrollTime.current = now;
-    carouselRef.current.scrollBy({ 
-      left: scrollSpeedRef.current, 
-      behavior: "smooth" 
-    });
-    
-    animationRef.current = requestAnimationFrame(autoScroll);
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
-  // Start/stop auto-scroll on hover
-  useEffect(() => {
-    const carousel = carouselRef.current;
-    if (!carousel) return;
-
-    const handleMouseEnter = () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-        animationRef.current = null;
-      }
-    };
-
-    const handleMouseLeave = () => {
-      if (!animationRef.current) {
-        animationRef.current = requestAnimationFrame(autoScroll);
-      }
-    };
-
-    carousel.addEventListener('mouseenter', handleMouseEnter);
-    carousel.addEventListener('mouseleave', handleMouseLeave);
-    
-    // Start auto-scroll
-    animationRef.current = requestAnimationFrame(autoScroll);
-    
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-      carousel.removeEventListener('mouseenter', handleMouseEnter);
-      carousel.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, [autoScroll]);
-  const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
-
-  const handleInfiniteScroll = useCallback(() => {
-    if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
-  
-    scrollTimeout.current = setTimeout(() => {
-      if (!carouselRef.current) return;
-      const { scrollLeft } = carouselRef.current;
-      const { width, gap } = dimensions;
-      const singleSetWidth = (width + gap) * originalLength;
-  
-      if (scrollLeft >= singleSetWidth * 2) {
-        carouselRef.current.scrollLeft = scrollLeft - singleSetWidth;
-      } else if (scrollLeft < singleSetWidth) {
-        carouselRef.current.scrollLeft = scrollLeft + singleSetWidth;
-      }
-  
-      const newIndex = Math.round(
-        (carouselRef.current.scrollLeft - singleSetWidth) / (width + gap)
-      ) % originalLength;
-      setCurrentIndex((newIndex + originalLength) % originalLength);
-    }, 100);
-  }, [dimensions, originalLength]);
-  
-  useEffect(() => {
-    return () => {
-      if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
-    };
-  }, []);
-  
   return (
-    <div className="relative w-full">
+    <div className="relative w-full overflow-hidden py-10 md:py-20">
       <div
-        className="flex w-full overflow-x-scroll overscroll-x-contain scroll-smooth py-10 [scrollbar-width:none] md:py-20"
-        ref={carouselRef}
-        onScroll={handleInfiniteScroll}
+        ref={containerRef}
+        className="flex w-full animate-scroll gap-4 pl-4"
+        style={{
+          animationDuration: `${originalLength * 5}s`,
+          width: `${originalLength * (dimensions.width + dimensions.gap) * 2}px`,
+        }}
       >
-        <div className="flex flex-row justify-start gap-4 pl-4 mx-auto max-w-7xl">
-          {clonedItems.map((item, idx) => (
-            <div key={idx} className="rounded-3xl">
-              {item}
-            </div>
-          ))}
-        </div>
+        {[...items, ...items].map((item, idx) => (
+          <div key={idx} className="rounded-3xl flex-shrink-0">
+            {item}
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
-// ... rest of your components (Card, BlurImage) remain the same ...
+// ... rest of your components (Card, BlurImage) remain mostly the same ...
 
-
-
-// --- Card Component ---
 export const Card = ({
   card,
   index,
@@ -213,7 +89,6 @@ export const Card = ({
     }
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-    // eslint-disable-next-line
   }, [open]);
 
   // Outside click
@@ -230,7 +105,6 @@ export const Card = ({
       document.addEventListener("mousedown", handleClickOutside);
     }
     return () => document.removeEventListener("mousedown", handleClickOutside);
-    // eslint-disable-next-line
   }, [open]);
 
   const handleOpen = () => setOpen(true);
@@ -282,31 +156,30 @@ export const Card = ({
         )}
       </AnimatePresence>
       <motion.button
-        layoutId={layout ? `card-${card.title}` : undefined}
-        onClick={handleOpen}
-        className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 md:h-[40rem] md:w-96 dark:bg-neutral-900"
-      >
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
-        <div className="relative z-40 p-8">
-          <motion.p
-            layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-left font-sans text-sm font-medium text-white md:text-base"
-          >
-            {card.category}
-          </motion.p>
-          <motion.p
-            layoutId={layout ? `title-${card.title}` : undefined}
-            className="mt-2 max-w-xs text-left font-sans text-xl font-semibold [text-wrap:balance] text-white md:text-3xl"
-          >
-            {card.title}
-          </motion.p>
-        </div>
-        <BlurImage
-          src={card.src}
-          alt={card.title}
-          className="absolute inset-0 z-10 object-cover"
-        />
-      </motion.button>
+  layoutId={layout ? `card-${card.title}` : undefined}
+  onClick={handleOpen}
+  className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 md:h-[40rem] md:w-96 dark:bg-neutral-900"
+>
+  <div className="relative z-40 p-8">
+    <motion.p
+      layoutId={layout ? `category-${card.category}` : undefined}
+      className="text-left font-sans text-sm font-medium text-white md:text-base"
+    >
+      {card.category}
+    </motion.p>
+    <motion.p
+      layoutId={layout ? `title-${card.title}` : undefined}
+      className="mt-2 max-w-xs text-left font-sans text-xl font-semibold [text-wrap:balance] text-white md:text-3xl"
+    >
+      {card.title}
+    </motion.p>
+  </div>
+  <BlurImage
+    src={card.src}
+    alt={card.title}
+    className="absolute inset-0 z-10"
+  />
+</motion.button>
     </>
   );
 };
@@ -318,24 +191,50 @@ export const BlurImage = ({
   className,
   alt,
   ...rest
-}: ImageProps) => {
-  const [isLoading, setLoading] = useState(true);
+}: any) => {
+  const [blurIntensity, setBlurIntensity] = useState(30); // Start with 30% blur
+
   return (
-    <img
-      className={cn(
-        "h-full w-full transition duration-300",
-        isLoading ? "blur-sm" : "blur-0",
-        className,
-      )}
-      onLoad={() => setLoading(false)}
-      src={src as string}
-      width={width}
-      height={height}
-      loading="lazy"
-      decoding="async"
-      alt={alt ? alt : "Background of a beautiful view"}
-      {...rest}
-    />
+    <div className="relative h-full w-full overflow-hidden">
+      <img
+        className={cn(
+          "absolute inset-0 h-full w-full object-cover",
+          className
+        )}
+        src={src}
+        width={width}
+        height={height}
+        loading="lazy"
+        decoding="async"
+        alt={alt ? alt : "Background of a beautiful view"}
+        style={{
+          filter: `blur(${blurIntensity}px)`,
+          transition: 'filter 1s ease-out',
+          transform: 'scale(1.05)',
+        }}
+        onLoad={() => {
+          // Gradually reduce blur from 30px to 0 over 1 second
+          const startTime = Date.now();
+          const duration = 1000; // 1 second
+          
+          const animateBlur = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const newBlur = 30 * (1 - progress);
+            
+            setBlurIntensity(newBlur);
+            
+            if (progress < 1) {
+              requestAnimationFrame(animateBlur);
+            }
+          };
+          
+          requestAnimationFrame(animateBlur);
+        }}
+        {...rest}
+      />
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent" />
+    </div>
   );
 };
-
