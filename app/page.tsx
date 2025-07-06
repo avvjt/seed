@@ -60,8 +60,8 @@ export default function Home() {
       {/* <PinContainer>
         <h1>Contact us</h1>
       </PinContainer> */}
-      <LampDemo/>
-      <SpotlightPreview/>
+      
+      {/* <SpotlightPreview/> */}
       <AppleCardsCarousel />
       {/* <BackgroundCollision/> */}
       {/* <BackgroundGradientDemo/> */}

@@ -132,6 +132,31 @@ export const Lid = ({
   translate: MotionValue<number>;
   src?: string;
 }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Auto-play the video when component mounts
+    const attemptPlay = () => {
+      if (videoRef.current && src) {
+        videoRef.current.play().catch(error => {
+          console.warn("Video autoplay prevented:", error);
+        });
+      }
+    };
+
+    attemptPlay();
+    
+    // Optional: Re-attempt play when page becomes visible
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        attemptPlay();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, [src]);
+
   return (
     <div className="relative [perspective:800px]">
       <div
@@ -165,11 +190,23 @@ export const Lid = ({
         className="absolute inset-0 h-96 w-[32rem] rounded-2xl bg-[#010101] p-2"
       >
         <div className="absolute inset-0 rounded-lg bg-[#272729]" />
-        <img
-          src={src as string}
-          alt="aceternity logo"
-          className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
-        />
+        
+        {src ? (
+          <video
+            ref={videoRef}
+            src={src}
+            muted
+            loop
+            playsInline
+            disablePictureInPicture
+            disableRemotePlayback
+            className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center rounded-lg">
+            <AceternityLogo />
+          </div>
+        )}
       </motion.div>
     </div>
   );
