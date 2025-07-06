@@ -1,8 +1,11 @@
+"use client";
+
+import { useState } from 'react';
 import FooterSection from "@/components/footer";
 
 // components/BlogHero.js
 const BlogHero = () => (
-  <section className="relative bg-gradient-to-br  dark:bg-[oklch(0.147_0.004_49.25)] py-8 lg:py-12">
+  <section className="relative bg-gradient-to-br dark:bg-[oklch(0.147_0.004_49.25)] py-8 lg:py-12">
     <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]"></div>
     <div className="relative max-w-4xl mx-auto px-4 md:px-6 text-center">
       <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 text-sm font-medium mb-6">
@@ -51,14 +54,13 @@ const posts = [
     image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
     tags: ["Design", "Startups"],
   },
-  // Add more posts as desired
 ];
 
 // Blog Card Component
-const BlogCard = ({ post }) => (
-  <a
-    href={`/blog/${post.slug}`}
-    className="block bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow shadow-slate-950/5 hover:shadow-lg transition-shadow border border-slate-200 dark:border-slate-800"
+const BlogCard = ({ post, onClick }) => (
+  <div
+    className="block bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow shadow-slate-950/5 hover:shadow-lg transition-shadow border border-slate-200 dark:border-slate-800 cursor-pointer"
+    onClick={onClick}
   >
     <img src={post.image} alt={post.title} className="w-full h-56 object-cover" />
     <div className="p-6 flex flex-col h-full">
@@ -79,12 +81,12 @@ const BlogCard = ({ post }) => (
         <span>{new Date(post.date).toLocaleDateString()}</span>
       </div>
     </div>
-  </a>
+  </div>
 );
 
 // Pre-footer CTA
 const BlogPreFooter = () => (
-  <section className="bg-emerald-50 dark:bg-[oklch(0.147_0.004_49.25)] py-16 lg:py-20  border-emerald-100 dark:border-slate-800">
+  <section className="bg-emerald-50 dark:bg-[oklch(0.147_0.004_49.25)] py-16 lg:py-20 border-emerald-100 dark:border-slate-800">
     <div className="max-w-3xl mx-auto px-4 md:px-6 text-center">
       <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
         Never miss an update!
@@ -111,21 +113,66 @@ const BlogPreFooter = () => (
   </section>
 );
 
+// Minimalistic Maintenance Message Component
+const BlogMaintenance = ({ onClose }) => (
+  <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4">
+    <div className="bg-black rounded-lg border border-gray-800 max-w-md w-full p-8">
+      <div className="text-center">
+        <div className="mb-6">
+          <svg 
+            className="w-16 h-16 mx-auto text-gray-200" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24" 
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth="1.5" 
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+        </div>
+        <h2 className="text-2xl font-semibold text-gray-100 mb-3">Blog Maintenance</h2>
+        <p className="text-gray-400 mb-6 leading-relaxed">
+          Our blog server is currently migrating to provide a better experience. 
+          We'll be back shortly with improved content delivery.
+        </p>
+        <button
+          onClick={onClose}
+          className="px-5 py-2 text-gray-200 font-medium rounded-lg border border-gray-700 hover:bg-gray-800 transition-colors"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+);
+
 // Main Blogs Page
 export default function Blogs() {
+  const [showMaintenance, setShowMaintenance] = useState(false);
+
   return (
     <>
       <BlogHero />
       <main className="max-w-6xl mx-auto px-4 md:px-6 py-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map(post => (
-            <BlogCard key={post.slug} post={post} />
+            <BlogCard 
+              key={post.slug} 
+              post={post} 
+              onClick={() => setShowMaintenance(true)} 
+            />
           ))}
         </div>
       </main>
       <BlogPreFooter />
-      {/* Attach your <FooterSection /> here */}
-      <FooterSection/>
+      <FooterSection />
+      
+      {/* Show maintenance modal when a blog card is clicked */}
+      {showMaintenance && <BlogMaintenance onClose={() => setShowMaintenance(false)} />}
     </>
   );
 }

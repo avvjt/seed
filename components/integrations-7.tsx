@@ -18,7 +18,7 @@ export default function IntegrationsSection() {
                                 speed={20}
                                 speedOnHover={10}>
                                 <IntegrationCard>
-                                    <VSCodium />
+                                    <VSCodium/>
                                 </IntegrationCard>
                                 <IntegrationCard>
                                     <MediaWiki />
