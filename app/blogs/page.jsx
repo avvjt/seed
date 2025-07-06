@@ -2,28 +2,8 @@
 
 import { useState } from 'react';
 import FooterSection from "@/components/footer";
+import HeroBlog from "@/components/HeroBlog"
 
-// components/BlogHero.js
-const BlogHero = () => (
-  <section className="relative bg-gradient-to-br dark:bg-[oklch(0.147_0.004_49.25)] py-8 lg:py-12">
-    <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]"></div>
-    <div className="relative max-w-4xl mx-auto px-4 md:px-6 text-center">
-      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 text-sm font-medium mb-6">
-        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M4 4h12v2H4V4zm0 4h12v2H4V8zm0 4h8v2H4v-2z" />
-        </svg>
-        Insights & Stories
-      </div>
-      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
-        The <span className="text-emerald-500">Blog</span>
-      </h1>
-      <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8">
-        Explore the latest news, product updates, and expert insights from our team. 
-        Stay inspired and informed!
-      </p>
-    </div>
-  </section>
-);
 
 // Dummy blog data
 const posts = [
@@ -59,7 +39,7 @@ const posts = [
 // Blog Card Component
 const BlogCard = ({ post, onClick }) => (
   <div
-    className="block bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow shadow-slate-950/5 hover:shadow-lg transition-shadow border border-slate-200 dark:border-slate-800 cursor-pointer"
+    className="block bg-white dark:bg-black rounded-2xl overflow-hidden shadow shadow-slate-950/5 hover:shadow-lg transition-shadow border border-slate-200 dark:border-slate-800 cursor-pointer"
     onClick={onClick}
   >
     <img src={post.image} alt={post.title} className="w-full h-56 object-cover" />
@@ -103,7 +83,7 @@ const BlogPreFooter = () => (
         />
         <button
           type="submit"
-          className="px-6 py-3 bg-emerald-500 text-white font-medium rounded-lg hover:bg-emerald-600 transition-colors"
+          className="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-emerald-600 transition-colors"
         >
           Subscribe
         </button>
@@ -156,7 +136,7 @@ export default function Blogs() {
 
   return (
     <>
-      <BlogHero />
+      <HeroBlog/>
       <main className="max-w-6xl mx-auto px-4 md:px-6 py-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map(post => (
