@@ -1,5 +1,6 @@
 import { AppleCardsCarousel } from "@/components/AppleCardsCarousel";
-import { Auroraa } from "@/components/Auroraa";
+import { AuroraBackgroundDemo } from "@/components/AuroraBackgroundDemo";
+
 import { BackgroundCollision } from "@/components/BackgroundCollision";
 import { BackgroundGradientDemo } from "@/components/BackgroundGradient";
 import { BackgroundLinesDemo } from "@/components/BackgroundLines";
@@ -19,12 +20,15 @@ import HeroSection from "@/components/hero-section";
 import { HeroScrollDemo } from "@/components/HeroScrollDemo";
 import { HoverBorderGradientDemo } from "@/components/HoverBorderGradientDemo";
 import IntegrationsSection from "@/components/integrations-7";
+import { LampDemo } from "@/components/LampDemo";
 import LogoCloud from "@/components/logo-cloud";
 import Logo from "@/components/logos/Logo";
 import { MacbookScrollDemo } from "@/components/MacbookScrollDemo";
+
 import { PlaceholdersAndVanishInputDemo } from "@/components/PlaceholdersAndVanishInputDemo";
 import { PointerHighlightDemo } from "@/components/PointerHighlightDemo";
 import { SidebarDemo } from "@/components/SidebarDemo";
+import { SpotlightPreview } from "@/components/SpotlightPreview";
 import StatsSection from "@/components/stats";
 import { SVGMaskEffectDemo } from "@/components/SVGMaskEffectDemo";
 import TestimonialSection from "@/components/Testimonial";
@@ -44,16 +48,20 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <MacbookScrollDemo />
+      <MacbookScrollDemo/>
       {/* <BackgroundLinesDemo/> */}
       {/* <AnimatedTestimonials/> */}
-      <Auroraa/>
+      <AuroraBackgroundDemo/>
+
+    
       <LogoCloud/>
       {/* <ThreeDCard/> */}
       {/* <ThreeDM/>   */}
       {/* <PinContainer>
         <h1>Contact us</h1>
       </PinContainer> */}
+      <LampDemo/>
+      <SpotlightPreview/>
       <AppleCardsCarousel />
       {/* <BackgroundCollision/> */}
       {/* <BackgroundGradientDemo/> */}

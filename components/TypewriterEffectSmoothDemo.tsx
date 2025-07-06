@@ -1,6 +1,9 @@
 "use client";
 
 import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
+import { motion } from "motion/react";
+import { LampContainer } from "@/components/ui/lamp";
+import React from "react";
 
 export function TypewriterEffectSmoothDemo() {
   const words = [

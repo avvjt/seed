@@ -24,6 +24,7 @@ import { IconCommand } from "@tabler/icons-react";
 import { IconCaretLeftFilled } from "@tabler/icons-react";
 import { IconCaretDownFilled } from "@tabler/icons-react";
 
+
 export const MacbookScroll = ({
   src,
   showGradient,
@@ -67,14 +68,14 @@ export const MacbookScroll = ({
   return (
     <div
       ref={ref}
-      className="flex min-h-[100vh] md:min-h-[200vh] shrink-0 scale-[0.35] transform flex-col items-center justify-center py-2 sm:py-3 md:py-20 [perspective:800px] sm:scale-50 md:scale-100"
+      className="flex min-h-[200vh] shrink-0 scale-[0.35] transform flex-col items-center justify-start py-0 [perspective:800px] sm:scale-50 md:scale-100 md:py-80"
     >
       <motion.h2
         style={{
           translateY: textTransform,
           opacity: textOpacity,
         }}
-        className="mb-8 sm:mb-12 md:mb-20 text-center text-lg sm:text-xl md:text-3xl font-bold text-neutral-800 dark:text-white"
+        className="mb-20 text-center text-3xl font-bold text-neutral-800 dark:text-white"
       >
         {title || (
           <span>
@@ -82,8 +83,7 @@ export const MacbookScroll = ({
           </span>
         )}
       </motion.h2>
-      
-      {/* Lid with proper image fitting */}
+      {/* Lid */}
       <Lid
         src={src}
         scaleX={scaleX}
@@ -91,9 +91,8 @@ export const MacbookScroll = ({
         rotate={rotate}
         translate={translate}
       />
-      
       {/* Base area */}
-      <div className="relative -z-10 h-[22rem] w-[32rem] overflow-visible rounded-2xl bg-gray-200 dark:bg-[#272729]">
+      <div className="relative -z-10 h-[22rem] w-[32rem] overflow-hidden rounded-2xl bg-gray-200 dark:bg-[#272729]">
         {/* above keyboard bar */}
         <div className="relative h-10 w-full">
           <div className="absolute inset-x-0 mx-auto h-4 w-[80%] bg-[#050505]" />
@@ -114,19 +113,13 @@ export const MacbookScroll = ({
         {showGradient && (
           <div className="absolute inset-x-0 bottom-0 z-50 h-40 w-full bg-gradient-to-t from-white via-white to-transparent dark:from-black dark:via-black"></div>
         )}
-        
-        {badge && (
-          <div className="absolute -bottom-6 left-4 z-50 scale-75 sm:-bottom-8 sm:left-6 sm:scale-90 md:-bottom-12 md:left-8 md:scale-100">
-            {badge}
-          </div>
-        )}
+        {badge && <div className="absolute bottom-4 left-4">{badge}</div>}
       </div>
     </div>
   );
 };
 
-// Updated Lid component with proper image fitting
-const Lid = ({
+export const Lid = ({
   scaleX,
   scaleY,
   rotate,
@@ -151,12 +144,12 @@ const Lid = ({
       >
         <div
           style={{
-            boxShadow: "0px 2px 0px 2px var(--neutral-900) inset",
+            boxShadow: "0px 2px 0px 2px #171717 inset",
           }}
           className="absolute inset-0 flex items-center justify-center rounded-lg bg-[#010101]"
         >
           <span className="text-white">
-            {/* Your logo here */}
+            <AceternityLogo />
           </span>
         </div>
       </div>
@@ -172,45 +165,15 @@ const Lid = ({
         className="absolute inset-0 h-96 w-[32rem] rounded-2xl bg-[#010101] p-2"
       >
         <div className="absolute inset-0 rounded-lg bg-[#272729]" />
-        {src && (
-          <img
-            src={src}
-            alt="MacBook Screen"
-            className="absolute inset-0 h-full w-full rounded-lg object-cover object-center"
-          />
-        )}
+        <img
+          src={src as string}
+          alt="aceternity logo"
+          className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
+        />
       </motion.div>
     </div>
   );
 };
-
-
-
-
-// export function Lid() {
-//   return (
-//     <div style={{ perspective: "800px", width: 400, height: 200, position: "relative" }}>
-//       <motion.div
-//         style={{
-//           width: "100%",
-//           height: 100,
-//           background: "#222",
-//           borderRadius: 12,
-//           position: "absolute",
-//           top: 40,
-//           left: 0,
-//           transformStyle: "preserve-3d",
-//           boxShadow: "0 10px 40px rgba(0,0,0,0.25)",
-//         }}
-//         initial={{ rotateX: -25, translateZ: 60 }}
-//         whileHover={{ rotateX: -18, translateZ: 120 }}
-//         transition={{ type: "spring", stiffness: 100 }}
-//       >
-//         {/* Lid content */}
-//       </motion.div>
-//     </div>
-//   );
-// }
 
 export const Trackpad = () => {
   return (

@@ -168,7 +168,7 @@ export default function PricingComparator() {
           ))}
         </div>
 
-        {/* FAQ or Additional Info Section */}
+        {/* FAQ or Additional Info Section
         <div className="mt-16 lg:mt-20 text-center">
           <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
             Still have questions?
@@ -179,7 +179,7 @@ export default function PricingComparator() {
           <button className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-medium hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors">
             Get in touch
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
