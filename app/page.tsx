@@ -1,4 +1,4 @@
-import { AppleCardsCarousel } from "@/components/AppleCardsCarousel";
+
 import { AuroraBackgroundDemo } from "@/components/AuroraBackgroundDemo";
 
 import { BackgroundCollision } from "@/components/BackgroundCollision";
@@ -47,6 +47,7 @@ import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 export default function Home() {
   return (
     <>
+    <HoverBorderGradientDemo/>
       <HeroSection />
       <MacbookScrollDemo/>
       {/* <BackgroundLinesDemo/> */}
@@ -62,7 +63,7 @@ export default function Home() {
       </PinContainer> */}
       
       {/* <SpotlightPreview/> */}
-      <AppleCardsCarousel />
+
       {/* <BackgroundCollision/> */}
       {/* <BackgroundGradientDemo/> */}
       {/* <CanvasRevealEffectDemo/> --> hav to resolve the error */}

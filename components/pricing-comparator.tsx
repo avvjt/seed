@@ -1,8 +1,10 @@
-"use client"
+"use client";
 import { useState } from "react";
 import HeroPricing from "@/components/HeroPricing";
 
-const CheckSVG = ({ className = "w-4 h-4 mr-3 fill-black dark:fill-white shrink-0" }) => (
+const CheckSVG = ({
+  className = "w-4 h-4 mr-3 fill-black dark:fill-white shrink-0",
+}) => (
   <svg className={className} viewBox="0 0 12 12">
     <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
   </svg>
@@ -10,43 +12,63 @@ const CheckSVG = ({ className = "w-4 h-4 mr-3 fill-black dark:fill-white shrink-
 
 const plans = [
   {
-    name: "Essential",
-    price: { yearly: 29, monthly: 35 },
-    description: "Perfect for getting started.",
+    name: "Free",
+    price: { yearly: 0, monthly: 0 },
+    description: "Perfect for getting started with automation",
     features: [
-      "Unlimited placeholder texts",
-      "Consectetur adipiscing elit",
-      "Excepteur sint occaecat cupidatat",
-      "Officia deserunt mollit anim",
+      "Cloud based solution",
+      "Unlimited imports (8+ ways)",
+      "Reply detection",
+      "Unlimited message templates",
+      "Delete pending requests",
+      "Basic campaign analytics",
+      "Activity control center",
+      "Chat support",
     ],
     popular: false,
+    ctaText: "Get Started Free",
+    badge: null,
   },
   {
-    name: "Perform",
-    price: { yearly: 49, monthly: 55 },
-    description: "Best for growing teams.",
+    name: "Professional",
+    price: { yearly: 170, monthly: 17 },
+    description: "Best for growing sales teams",
     features: [
-      "Unlimited placeholder texts",
-      "Consectetur adipiscing elit",
-      "Excepteur sint occaecat cupidatat",
-      "Officia deserunt mollit anim",
-      "Predefined chunks as necessary",
+      "Everything in Free +",
+      "Unlimited imports from Groups, Events, Searches",
+      "Import/Export from CSV",
+      "Unlimited campaigns",
+      "800 invitations/month",
+      "200 messages/day",
+      "Premium Sales Nav & Recruiter Support",
+      "Sendspark video integration",
+      "Remove prospects from active campaigns",
+      "Priority email support",
+      "Advanced campaign analytics",
     ],
     popular: true,
+    ctaText: "Start 7-Day Free Trial",
+    badge: "Save 17%",
   },
   {
     name: "Enterprise",
-    price: { yearly: 79, monthly: 85 },
-    description: "For organizations with advanced needs.",
+    price: { yearly: "Custom", monthly: "Custom" },
+    description: "For organizations with advanced needs",
     features: [
-      "Unlimited placeholder texts",
-      "Consectetur adipiscing elit",
-      "Excepteur sint occaecat cupidatat",
-      "Officia deserunt mollit anim",
-      "Predefined chunks as necessary",
-      "Free from repetition",
+      "All Professional features +",
+      "Dedicated account manager",
+      "Custom invitation limits",
+      "Unlimited messaging volume",
+      "SAML SSO integration",
+      "API access & webhooks",
+      "Custom reporting & analytics",
+      "Priority onboarding",
+      "99.9% uptime SLA",
+      "Dedicated IP addresses",
+      "SOC 2 compliance",
     ],
     popular: false,
+    ctaText: "Contact Sales",
   },
 ];
 
@@ -56,16 +78,15 @@ export default function PricingComparator() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center bg-white dark:bg-black text-neutral-800 dark:text-neutral-200 overflow-hidden">
       <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-24">
-        
         {/* Hero Section */}
         <div className="text-center mb-16 lg:mb-20">
-          <HeroPricing/>
-          
+          <HeroPricing />
+
           {/* Trust indicators */}
           <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-black dark:text-white">
             <div className="flex items-center gap-2">
               <CheckSVG />
-              <span>30-day free trial</span>
+              <span>7-day free trial</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckSVG />
@@ -75,13 +96,20 @@ export default function PricingComparator() {
               <CheckSVG />
               <span>Cancel anytime</span>
             </div>
+            <div className="flex items-center gap-2">
+              <CheckSVG />
+              <span>30-day money-back guarantee</span>
+            </div>
           </div>
         </div>
 
         {/* Pricing toggle */}
         <div className="flex justify-center max-w-[14rem] m-auto mb-8 lg:mb-16">
           <div className="relative flex w-full p-1 bg-gray-100 dark:bg-gray-900 rounded-full">
-            <span className="absolute inset-0 m-1 pointer-events-none" aria-hidden="true">
+            <span
+              className="absolute inset-0 m-1 pointer-events-none"
+              aria-hidden="true"
+            >
               <span
                 className={`absolute inset-0 w-1/2 bg-black dark:bg-white rounded-full shadow transform transition-transform duration-150 ease-in-out ${
                   isAnnual ? "translate-x-0" : "translate-x-full"
@@ -90,16 +118,27 @@ export default function PricingComparator() {
             </span>
             <button
               className={`relative flex-1 text-sm font-medium h-8 rounded-full transition-colors duration-150 ease-in-out ${
-                isAnnual ? "text-white dark:text-black" : "text-gray-700 dark:text-gray-400"
+                isAnnual
+                  ? "text-white dark:text-black"
+                  : "text-gray-700 dark:text-gray-400"
               }`}
               aria-pressed={isAnnual}
               onClick={() => setIsAnnual(true)}
             >
-              Yearly <span className={isAnnual ? "text-gray-400 dark:text-gray-600" : "hidden"}>-20%</span>
+              Yearly{" "}
+              <span
+                className={
+                  isAnnual ? "text-gray-400 dark:text-gray-600" : "hidden"
+                }
+              >
+                -20%
+              </span>
             </button>
             <button
               className={`relative flex-1 text-sm font-medium h-8 rounded-full transition-colors duration-150 ease-in-out ${
-                !isAnnual ? "text-white dark:text-black" : "text-gray-700 dark:text-gray-400"
+                !isAnnual
+                  ? "text-white dark:text-black"
+                  : "text-gray-700 dark:text-gray-400"
               }`}
               aria-pressed={!isAnnual}
               onClick={() => setIsAnnual(false)}
@@ -126,26 +165,57 @@ export default function PricingComparator() {
                   </div>
                 )}
                 <div className="mb-5">
-                  <div className="text-black dark:text-white font-semibold mb-1">{plan.name}</div>
-                  <div className="inline-flex items-baseline mb-2">
-                    <span className="text-black dark:text-white font-bold text-3xl">$</span>
-                    <span className="text-black dark:text-white font-bold text-4xl">
-                      {isAnnual ? plan.price.yearly : plan.price.monthly}
-                    </span>
-                    <span className="text-gray-500 font-medium">/mo</span>
+                  <div className="text-black dark:text-white font-semibold mb-1">
+                    {plan.name}
                   </div>
-                  <div className="text-sm text-gray-500 mb-5">{plan.description}</div>
+                  <div className="inline-flex items-baseline mb-2">
+                    {typeof plan.price.yearly === "number" ? (
+                      <>
+                        <span className="text-black dark:text-white font-bold text-3xl">
+                          $
+                        </span>
+                        <span className="text-black dark:text-white font-bold text-4xl">
+                          {isAnnual ? plan.price.yearly : plan.price.monthly}
+                        </span>
+                        <span className="text-gray-500 font-medium">
+                          /{isAnnual ? "year" : "mo"}
+                        </span>
+                      </>
+                    ) : (
+                      <span className="text-black dark:text-white font-bold text-3xl">
+                        Custom Pricing
+                      </span>
+                    )}
+                    {plan.badge && (
+                      <span className="ml-2 text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded-full">
+                        {plan.badge}
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-sm text-gray-500 mb-5">
+                    {plan.description}
+                  </div>
                   <a
-                    className="w-full inline-flex justify-center whitespace-nowrap rounded-lg bg-black dark:bg-white px-3.5 py-2.5 text-sm font-medium text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors duration-150"
-                    href="#0"
+                    className={`w-full inline-flex justify-center whitespace-nowrap rounded-lg px-3.5 py-2.5 text-sm font-medium transition-colors duration-150 ${
+                      plan.name === "Enterprise"
+                        ? "bg-gray-800 dark:bg-gray-200 text-white dark:text-black hover:bg-gray-700 dark:hover:bg-gray-300"
+                        : "bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200"
+                    }`}
+                    href={
+                      plan.name === "Enterprise"
+                        ? "mailto:sales@leadseeder.com"
+                        : "#"
+                    }
                   >
-                    Purchase Plan
+                    {plan.ctaText}
                   </a>
                 </div>
-                <div className="text-black dark:text-white font-medium mb-3">Includes:</div>
+                <div className="text-black dark:text-white font-medium mb-3">
+                  Includes:
+                </div>
                 <ul className="text-gray-600 dark:text-gray-400 text-sm space-y-3 grow">
                   {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-center">
+                    <li key={feature} className="flex items-start">
                       <CheckSVG />
                       <span>{feature}</span>
                     </li>

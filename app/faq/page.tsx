@@ -10,7 +10,6 @@ export default function Faq() {
   return (
     <>
     <HeroFAQ/>
-    {/* <PlaceholdersAndVanishInputDemo /> */}
     <FAQsTwo/>
     <FooterSection/>
     </>

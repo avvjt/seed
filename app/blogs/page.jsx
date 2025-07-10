@@ -4,38 +4,62 @@ import { useState } from 'react';
 import FooterSection from "@/components/footer";
 import HeroBlog from "@/components/HeroBlog"
 
-
-// Dummy blog data
 const posts = [
   {
-    slug: "ai-in-2025",
-    title: "How AI Will Shape 2025: Trends & Predictions",
-    excerpt: "Discover the key developments in artificial intelligence and what to expect in the coming year.",
-    date: "2025-06-15",
-    author: "Jane Doe",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80",
-    tags: ["AI", "Trends"],
+    slug: "linkedin-automation-best-practices",
+    title: "5 LinkedIn Automation Best Practices That Won't Get You Flagged",
+    excerpt: "Learn how to safely automate your LinkedIn outreach without triggering restrictions or damaging your reputation.",
+    date: "2025-06-18",
+    author: "Sarah Connors",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80",
+    tags: ["Automation", "Best Practices", "LinkedIn"],
   },
   {
-    slug: "productivity-hacks",
-    title: "10 Productivity Hacks for Remote Teams",
-    excerpt: "Boost your team's efficiency with these actionable tips for remote collaboration.",
-    date: "2025-06-10",
-    author: "John Smith",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
-    tags: ["Productivity", "Remote Work"],
+    slug: "cold-outreach-strategies",
+    title: "3 Cold Outreach Frameworks That Convert on LinkedIn",
+    excerpt: "Discover proven messaging templates and sequencing strategies that generate 5x more responses from prospects.",
+    date: "2025-06-05",
+    author: "Michael Rodriguez",
+    image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=600&q=80",
+    tags: ["Outreach", "Lead Generation", "Sales"],
   },
   {
-    slug: "design-systems",
-    title: "Design Systems: Why Your Startup Needs One",
-    excerpt: "Learn how a design system can streamline your product development and improve consistency.",
-    date: "2025-05-28",
-    author: "Alex Lee",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
-    tags: ["Design", "Startups"],
+    slug: "lead-generation-automation",
+    title: "How We Automated 90% of Our LinkedIn Lead Generation",
+    excerpt: "Step-by-step guide to building a scalable lead pipeline using smart automation and personalized touchpoints.",
+    date: "2025-05-22",
+    author: "TechGrowth Team",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
+    tags: ["Automation", "Lead Generation", "LinkedIn Tools"],
   },
+  {
+    slug: "linkedin-algorithm-2025",
+    title: "2025 LinkedIn Algorithm Changes: What Automation Tools Must Adapt To",
+    excerpt: "Stay ahead of the curve with the latest algorithm updates affecting automation tools and engagement strategies.",
+    date: "2025-05-15",
+    author: "Julia Chen",
+    image: "https://images.unsplash.com/photo-1611944212129-29977ae1398c?auto=format&fit=crop&w=600&q=80",
+    tags: ["Algorithm", "LinkedIn Updates", "Best Practices"],
+  },
+  {
+    slug: "automated-follow-ups",
+    title: "The Science Behind Perfectly Timed LinkedIn Follow-Ups",
+    excerpt: "Data-backed strategies for automated follow-up sequences that increase connection acceptance by 300%.",
+    date: "2025-04-30",
+    author: "David Kim",
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80",
+    tags: ["Follow-Ups", "Automation", "Sales Tactics"],
+  },
+  {
+    slug: "profile-optimization-automation",
+    title: "Automated Profile Optimization: Boost Visibility Without the Manual Work",
+    excerpt: "How to use automation tools to continuously optimize your profile for maximum visibility and credibility.",
+    date: "2025-04-18",
+    author: "GrowthHackers Team",
+    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80",
+    tags: ["Profile Optimization", "Personal Branding", "Automation"],
+  }
 ];
-
 // Blog Card Component
 const BlogCard = ({ post, onClick }) => (
   <div
