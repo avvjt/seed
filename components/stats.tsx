@@ -45,9 +45,10 @@ function useCountUp(to: number, start: boolean, duration = 1500) {
 
 export default function StatsSection() {
     const [ref, inView] = useInView(0.3); // 30% visible
-    const campaigns = useCountUp(1200, inView);
-    const users = useCountUp(2000, inView);
-    const hours = useCountUp(500, inView);
+    const responses = useCountUp(76, inView);
+    const users = useCountUp(3000, inView);
+    const connected = useCountUp(267, inView);
+    const value = useCountUp(50, inView);
   
     return (
       <section className="py-12 md:py-20" ref={ref}>
@@ -58,18 +59,23 @@ export default function StatsSection() {
               LeedSeeder is evolving to be more than just a Chrome Extension. It supports an entire to the APIs and platforms helping marketer and businesses innovate.
             </p>
           </div>
-          <div className="grid gap-12 divide-y *:text-center md:grid-cols-3 md:gap-2 md:divide-x md:divide-y-0">
-            <div className="space-y-4">
-              <div className="text-5xl font-bold">+{campaigns}</div>
-              <p>Campaigns Launched</p>
-            </div>
+          <div className="grid gap-12 divide-y *:text-center md:grid-cols-4 md:gap-2 md:divide-x md:divide-y-0">
             <div className="space-y-4">
               <div className="text-5xl font-bold">+{users}</div>
               <p>Active Users</p>
             </div>
             <div className="space-y-4">
-              <div className="text-5xl font-bold">+{hours}</div>
-              <p>Engagement Hours</p>
+              <div className="text-5xl font-bold">{responses+"K+"}</div>
+              <p>Responses</p>
+            </div>
+            
+            <div className="space-y-4">
+              <div className="text-5xl font-bold">{connected+"K+"}</div>
+              <p>People Connected</p>
+            </div>
+            <div className="space-y-4">
+              <div className="text-5xl font-bold">${value+"M+"}</div>
+              <p>Value generated</p>
             </div>
           </div>
         </div>

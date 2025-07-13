@@ -47,7 +47,6 @@ import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 export default function Home() {
   return (
     <>
-    <HoverBorderGradientDemo/>
       <HeroSection />
       <MacbookScrollDemo/>
       {/* <BackgroundLinesDemo/> */}
@@ -70,7 +69,7 @@ export default function Home() {
       {/* <CardHoverEffectDemo/> */}
       {/* <ColourfulTextDemo/> */}
       {/* <CompareDemo/> */}
-      <CoverDemo/>
+      {/* <CoverDemo/> */}
       {/* <HeroScrollDemo/> */}
       {/* <FlipWordsDemo/> */}
       {/* <FloatingDockDemo/> */}

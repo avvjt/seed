@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import React from "react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 
@@ -23,9 +25,15 @@ export function AuroraBackgroundDemo() {
         <div className="font-extralight text-base md:text-4xl dark:text-neutral-200 py-4">
           Generate your first business opportunity.
         </div>
-        <button className="bg-black dark:bg-white rounded-full w-fit text-white dark:text-black px-6 py-3">
-          Start for free
-        </button>
+        <Button
+          asChild
+          size="lg"
+          className="bg-black dark:bg-white rounded-full w-fit text-white dark:text-black px-6 py-3"
+        >
+          <Link href="/book-a-call">
+            <span className="text-nowrap">Start for free</span>
+          </Link>
+        </Button>
       </motion.div>
     </AuroraBackground>
   );

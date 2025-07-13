@@ -73,7 +73,7 @@ export default function HeroSection() {
               }}
               className="relative z-20 flex flex-wrap items-center justify-center gap-4 pt-4"
             >
-              <div
+              {/* <div
                 key={1}
                 className="rounded-[calc(var(--radius-xl)+0.125rem)] border border-white/20 bg-foreground/10 p-0.5"
               >
@@ -86,7 +86,7 @@ export default function HeroSection() {
                     <span className="text-nowrap">Get started</span>
                   </Link>
                 </Button>
-              </div>
+              </div> */}
               <HoverBorderGradient
                 key={2}
                 as={Link}
@@ -96,7 +96,10 @@ export default function HeroSection() {
                 duration={1}
                 clockwise={true}
               >
-                <span className="text-nowrap">Request a demo</span>
+                <Link href="/book-a-call">
+                    <span className="text-nowrap">Get started</span>
+                  </Link>
+                
               </HoverBorderGradient>
             </AnimatedGroup>
           </div>
