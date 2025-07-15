@@ -11,7 +11,7 @@ export function MacbookScrollDemo() {
           </span>
         }
         // Changed from image to video source
-        src={`/videos/video.mp4`} //Update this to your video path
+        src={`/videos/leadseeder.mp4`} //Update this to your video path
         showGradient={false}
       />
     </div>
