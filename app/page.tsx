@@ -1,6 +1,5 @@
 
 import { AuroraBackgroundDemo } from "@/components/AuroraBackgroundDemo";
-
 import { BackgroundCollision } from "@/components/BackgroundCollision";
 import { BackgroundGradientDemo } from "@/components/BackgroundGradient";
 import { BackgroundLinesDemo } from "@/components/BackgroundLines";
