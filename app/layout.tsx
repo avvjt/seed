@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LeadSeeder",
+  title: "Leadseeder",
   description: "Automate LinkedIn connection",
 };
 
