@@ -72,7 +72,7 @@ const BlogCard = ({ post, onClick }) => (
         {post.tags.map(tag => (
           <span
             key={tag}
-            className="inline-block px-2 py-1 bg-emerald-100 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 text-xs rounded font-medium"
+            className="inline-block px-2 py-1 bg-slate-100 dark:bg-black text-slate-700 dark:text-slate-200 text-xs rounded font-medium"
           >
             {tag}
           </span>
@@ -90,7 +90,7 @@ const BlogCard = ({ post, onClick }) => (
 
 // Pre-footer CTA
 const BlogPreFooter = () => (
-  <section className="bg-emerald-50 dark:bg-[oklch(0.147_0.004_49.25)] py-16 lg:py-20 border-emerald-100 dark:border-slate-800">
+  <section className="bg-white dark:bg-[oklch(0.147_0.004_49.25)] py-16 lg:py-20 border-emerald-100 dark:border-slate-800">
     <div className="max-w-3xl mx-auto px-4 md:px-6 text-center">
       <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
         Never miss an update!

@@ -90,16 +90,13 @@ export default function HeroSection() {
               <HoverBorderGradient
                 key={2}
                 as={Link}
-                href={"#"}
+                href="/book-a-call" // Changed to actual destination
                 containerClassName="rounded-xl"
                 className="h-10.5 px-6 py-2.5 text-black bg-white border-white backdrop-blur-sm transition-colors hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-offset-2 focus:ring-offset-black"
                 duration={1}
                 clockwise={true}
               >
-                <Link href="/book-a-call">
-                    <span className="text-nowrap">Get started</span>
-                  </Link>
-                
+                <span className="text-nowrap">Get started</span>
               </HoverBorderGradient>
             </AnimatedGroup>
           </div>
