@@ -18,8 +18,8 @@ export default function Testimonials() {
           <Card className="grid grid-rows-[auto_1fr] gap-8 sm:col-span-2 sm:p-6 lg:row-span-2">
             <CardHeader>
               <img
-                className="h-6 w-fit dark:invert"
-                src="https://html.tailus.io/blocks/customers/nike.svg"
+                className="h-10 w-fit dark:invert"
+                src="/images/seed.png"
                 alt="Nike Logo"
                 height="24"
                 width="auto"
@@ -27,7 +27,7 @@ export default function Testimonials() {
             </CardHeader>
             <CardContent>
               <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
-                <p className="text-xl font-medium">
+                <p className="text-lg font-medium">
                   Creative and personalized way to connect with prospects on
                   LinkedIn without being intrusive I saw its potential before
                   seeing a demo because the team used the solution to connect
@@ -65,7 +65,7 @@ export default function Testimonials() {
           <Card className="md:col-span-2">
             <CardContent className="h-full pt-6">
               <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
-                <p className="text-xl font-medium">
+                <p className="text-lg font-medium">
                   Best competing LI automation tool there is The sequencing
                   capabilities, AI functions that help boost engagement & the
                   user-friendly UI. Makes it a dream to use! We're now able to

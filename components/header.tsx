@@ -2,13 +2,10 @@
 import Link from "next/link";
 import { Logo } from "@/components/logo";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import React from "react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { ModeToggle } from "./mode-toggle";
-import { PointerHighlight } from "./ui/pointer-highlight";
-import { HoverBorderGradientDemo } from "./HoverBorderGradientDemo";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 const menuItems = [
@@ -23,7 +20,6 @@ export const HeroHeader = () => {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const pathname = usePathname();
 
-  // Properly typed ref
   const navRef = React.useRef<HTMLElement>(null);
 
   React.useEffect(() => {
@@ -34,7 +30,6 @@ export const HeroHeader = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Properly typed click outside detection
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
       if (
@@ -57,7 +52,6 @@ export const HeroHeader = () => {
     };
   }, [menuState]);
 
-  // Close menu when clicking on menu items (mobile)
   const handleMenuItemClick = () => {
     setMenuState(false);
   };
@@ -69,7 +63,7 @@ export const HeroHeader = () => {
   return (
     <header>
       <nav
-        ref={navRef} // Add ref to the nav element
+        ref={navRef} 
         data-state={menuState && "active"}
         className="fixed z-20 w-full px-2"
       >
@@ -133,7 +127,7 @@ export const HeroHeader = () => {
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        onClick={handleMenuItemClick} // Close menu on click
+                        onClick={handleMenuItemClick}
                         className={cn(
                           "text-muted-foreground hover:text-accent-foreground block duration-150 relative group",
                           isActive(item.href) &&
@@ -156,7 +150,7 @@ export const HeroHeader = () => {
                   containerClassName="rounded-full"
                   as="button"
                   className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
-                  onClick={handleMenuItemClick} // Move onClick here
+                  onClick={handleMenuItemClick}
                 >
                   <Link href="#">
                     <span>Get Started</span>

@@ -1,4 +1,5 @@
 // import FAQsTwo from "@/components/faqs-2";
+import { AuroraBackgroundDemo } from "@/components/AuroraBackgroundDemo";
 import FooterSection from "@/components/footer";
 import { LampDemo } from "@/components/LampDemo";
 import PricingComparator from "@/components/pricing-comparator";
@@ -13,7 +14,8 @@ export default function Pricing() {
     <>
     {/* <Pricing/> */}
     <PricingComparator/>
-    <LampDemo/>
+    {/* <LampDemo/> */}
+    <AuroraBackgroundDemo/>
     <Testimonials/>
     <SomeFaq/>
     <FooterSection/>

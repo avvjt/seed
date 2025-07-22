@@ -22,7 +22,7 @@ export function TimelineDemo() {
           </ul>
           <div className="grid grid-cols-1">
             <img
-              src="https://images.unsplash.com/photo-1611944212129-29977ae1398c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+              src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
               alt="Prospect import dashboard"
               className="w-full rounded-xl border object-cover shadow-lg md:h-96"
             />

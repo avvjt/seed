@@ -247,7 +247,7 @@ const PrivacyPolicy: React.FC = () => {
           </div>
 
           <div className="space-y-16">
-            {/* Introduction Section */}
+            
             <div className="border-l-2 border-white-500 pl-6">
               <div className="space-y-4">
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -270,7 +270,7 @@ const PrivacyPolicy: React.FC = () => {
               </div>
             </div>
 
-            {/* Main Sections */}
+           
             {sections.map((section, index) => (
               <div key={index} className="border-l-2 border-white-500 pl-6">
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 text-black dark:text-white">

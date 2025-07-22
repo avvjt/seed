@@ -16,7 +16,7 @@ export const Logo = ({ className }: { className?: string }) => {
       </div>
       
       {/* Text logo that adapts to dark mode */}
-      <div className="relative w-[100px] h-8">
+      <div className="relative w-[120px] h-10">
         <Image
           src="/images/leadsvg.svg"
           alt="Leadseeder"

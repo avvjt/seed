@@ -48,47 +48,12 @@ export default function Home() {
     <>
       <HeroSection />
       <MacbookScrollDemo/>
-      {/* <BackgroundLinesDemo/> */}
-      {/* <AnimatedTestimonials/> */}
       <AuroraBackgroundDemo/>
-
-    
       <LogoCloud/>
-      {/* <ThreeDCard/> */}
-      {/* <ThreeDM/>   */}
-      {/* <PinContainer>
-        <h1>Contact us</h1>
-      </PinContainer> */}
-      
-      {/* <SpotlightPreview/> */}
-
-      {/* <BackgroundCollision/> */}
-      {/* <BackgroundGradientDemo/> */}
-      {/* <CanvasRevealEffectDemo/> --> hav to resolve the error */}
-      {/* <CardHoverEffectDemo/> */}
-      {/* <ColourfulTextDemo/> */}
-      {/* <CompareDemo/> */}
-      {/* <CoverDemo/> */}
-      {/* <HeroScrollDemo/> */}
-      {/* <FlipWordsDemo/> */}
-      {/* <FloatingDockDemo/> */}
-      {/* <GoogleGeminiEffectDemo/> */}
-      {/* <HoverBorderGradientDemo/> */}
-      {/* <MacbookScrollDemo/> */}
-      {/* <PlaceholdersAndVanishInputDemo/>  */}
-      {/* <PointerHighlightDemo/> */}
-      {/* <SidebarDemo/> */}
-      {/* <SVGMaskEffectDemo/> */}
-      {/* <TextGenerateEffectDemo/> */}
-      {/* <TextHoverEffectDemo/> */}
       <TimelineDemo/>
-      {/* <LogoCloud /> */}
-      {/* <Features /> */}
-      {/* <FeaturesCard /> */}
       <StatsSection />
       <IntegrationsSection />
       <WallOfLoveSection />
-      {/* <FAQsTwo /> */}
       <FooterSection />
     </>
   );

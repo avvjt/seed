@@ -13,89 +13,70 @@ export default function LogoCloud() {
                         <InfiniteSlider
                             speedOnHover={20}
                             speed={40}
-                            gap={112}>
-                            <div className="flex">
+                            gap={96}  /* Reduced gap for better spacing with larger logos */
+                        >
+                            {/* Increased container size to 120x120px */}
+                            <div className="flex items-center justify-center h-30 w-30">  {/* h-30 = 7.5rem (120px) */}
                                 <img
-                                    className="mx-auto h-20 w-fit dark:invert"
+                                    className="max-h-24 max-w-24 object-contain dark:filter dark:brightness-0 dark:invert"  /* max-h-24 = 6rem (96px) */
                                     src="/images/image1.png"
-                                    alt="Loding.."
-                                    height="20"
-                                    width="auto"
+                                    alt="Partner logo"
                                 />
                             </div>
 
-                            <div className="flex">
+                            <div className="flex items-center justify-center h-34 w-34">
                                 <img
-                                    className="mx-auto h-20 w-fit dark:invert"
+                                    className="max-h-28 max-w-28 object-contain dark:filter dark:brightness-0 dark:invert"
                                     src="/images/image2.png"
-                                    alt="Loding.."
-                                    height="16"
-                                    width="auto"
+                                    alt="Partner logo"
                                 />
                             </div>
-                            <div className="flex">
-                               <img
-                                    className="mx-auto h-20 w-fit dark:invert"
+                            
+                            <div className="flex items-center justify-center h-38 w-38">
+                                <img
+                                    className="max-h-32 max-w-32 object-contain dark:filter dark:brightness-0 dark:invert"
                                     src="/images/image3.png"
-                                    alt="Loding.."
-                                    height="20"
-                                    width="auto"
+                                    alt="Partner logo"
                                 />
                             </div>
-                            <div className="flex">
+                            
+                            <div className="flex items-center justify-center h-30 w-30">
                                 <img
-                                    className="mx-auto h-20 w-fit dark:invert"
+                                    className="max-h-24 max-w-24 object-contain dark:filter dark:brightness-0 dark:invert"
                                     src="/images/image4.png"
-                                    alt="Loding.."
-                                    height="20"
-                                    width="auto"
+                                    alt="Partner logo"
                                 />
                             </div>
-                            <div className="flex">
-                               <img
-                                    className="mx-auto h-20 w-fit dark:invert"
-                                    src="/images/image5.png"
-                                    alt="Loding.."
-                                    height="20"
-                                    width="auto"
-                                />
-                            </div>
-                            <div className="flex">
-                               <img
-                                    className="mx-auto h-20 w-fit dark:invert"
-                                    src="/images/image6.png"
-                                    alt="Loding.."
-                                    height="20"
-                                    width="auto"
-                                />
-                            </div>
-                            <div className="flex">
+                            
+                            <div className="flex items-center justify-center h-30 w-30">
                                 <img
-                                    className="mx-auto h-20 w-fit dark:invert"
+                                    className="max-h-24 max-w-24 object-contain dark:filter dark:brightness-0 dark:invert"
+                                    src="/images/image6.png"
+                                    alt="Partner logo"
+                                />
+                            </div>
+                            
+                            <div className="flex items-center justify-center h-24 w-24">
+                                <img
+                                    className="max-h-18max-w-18 object-contain dark:filter dark:brightness-0 dark:invert"
                                     src="/images/image7.png"
-                                    alt="Loding.."
-                                    height="20"
-                                    width="auto"
+                                    alt="Partner logo"
                                 />
                             </div>
-
-                            <div className="flex">
-                               <img
-                                    className="mx-auto h-20 w-fit dark:invert"
+                            
+                            <div className="flex items-center justify-center h-30 w-30">
+                                <img
+                                    className="max-h-24 max-w-24 object-contain dark:filter dark:brightness-0 dark:invert"
                                     src="/images/image8.png"
-                                    alt="Loding.."
-                                    height="20"
-                                    width="auto"
+                                    alt="Partner logo"
                                 />
                             </div>
-
-                            <div className="flex">
-                               <img
-                                    className="mx-auto h-20 w-fit dark:invert"
+                            
+                            <div className="flex items-center justify-center h-30 w-30">
+                                <img
+                                    className="max-h-24 max-w-24 object-contain dark:filter dark:brightness-0 dark:invert"
                                     src="/images/image9.png"
-                                    alt="Loding.."
-                                    height="20"
-                                    width="auto"
+                                    alt="Partner logo"
                                 />
                             </div>
                         </InfiniteSlider>

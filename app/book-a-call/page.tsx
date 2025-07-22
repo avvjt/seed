@@ -4,26 +4,24 @@ import FooterSection from "@/components/footer";
 import HeroCall from "@/components/HeroCall";
 import WallOfLoveSection from "@/components/testimonials";
 
-// Hero Section Component
 const BookCallHero = () => (
   <section className="relative bg-white dark:bg-black py-5 lg:py-8">
     <div className="absolute inset-0 bg-grid-gray-200 dark:bg-grid-gray-800 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]"></div>
     
     <div className="relative max-w-6xl mx-auto px-4 md:px-6 text-center">
 
-      {/* Key Benefits */}
       
     </div>
   </section>
 );
 
 const PreFooterCTA = () => {
-  // Define email parameters
+ 
   const email = "avvjit@gmail.com";
   const subject = "Request for a Meeting";
   const body = "Hello, I couldn't find a suitable time on your calendar. Can we schedule a meeting at a time convenient for you?";
 
-  // Construct mailto link with encoded parameters
+
   const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
   return (

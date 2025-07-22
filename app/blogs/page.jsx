@@ -60,7 +60,7 @@ const posts = [
     tags: ["Profile Optimization", "Personal Branding", "Automation"],
   }
 ];
-// Blog Card Component
+
 const BlogCard = ({ post, onClick }) => (
   <div
     className="block bg-white dark:bg-black rounded-2xl overflow-hidden shadow shadow-slate-950/5 hover:shadow-lg transition-shadow border border-slate-200 dark:border-slate-800 cursor-pointer"
@@ -88,7 +88,6 @@ const BlogCard = ({ post, onClick }) => (
   </div>
 );
 
-// Pre-footer CTA
 const BlogPreFooter = () => (
   <section className="bg-white dark:bg-[oklch(0.147_0.004_49.25)] py-16 lg:py-20 border-emerald-100 dark:border-slate-800">
     <div className="max-w-3xl mx-auto px-4 md:px-6 text-center">
@@ -117,7 +116,6 @@ const BlogPreFooter = () => (
   </section>
 );
 
-// Minimalistic Maintenance Message Component
 const BlogMaintenance = ({ onClose }) => (
   <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4">
     <div className="bg-black rounded-lg border border-gray-800 max-w-md w-full p-8">
@@ -154,7 +152,6 @@ const BlogMaintenance = ({ onClose }) => (
   </div>
 );
 
-// Main Blogs Page
 export default function Blogs() {
   const [showMaintenance, setShowMaintenance] = useState(false);
 
@@ -174,8 +171,7 @@ export default function Blogs() {
       </main>
       <BlogPreFooter />
       <FooterSection />
-      
-      {/* Show maintenance modal when a blog card is clicked */}
+
       {showMaintenance && <BlogMaintenance onClose={() => setShowMaintenance(false)} />}
     </>
   );
