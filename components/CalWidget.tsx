@@ -1,4 +1,3 @@
-// components/CalWidget.tsx
 "use client";
 
 import Cal, { getCalApi } from "@calcom/embed-react";
@@ -10,8 +9,8 @@ interface CalWidgetProps {
 }
 
 export default function CalWidget({ 
-  namespace = "15min", 
-  calLink = "avvjt/15min" 
+  namespace = "queries", 
+  calLink = "vidit-gupta/queries"
 }: CalWidgetProps) {
   useEffect(() => {
     (async function initCal() {
@@ -19,7 +18,8 @@ export default function CalWidget({
         const cal = await getCalApi({ namespace });
         cal("ui", { 
           hideEventTypeDetails: false,
-          layout: "month_view" 
+          layout: "month_view",
+          theme: "auto" // Let Cal.com handle theme detection
         });
       } catch (error) {
         console.error("Failed to load Cal.com widget", error);
@@ -32,7 +32,10 @@ export default function CalWidget({
       namespace={namespace}
       calLink={calLink}
       style={{ width: "100%", height: "100%", overflow: "scroll" }}
-      config={{ layout: "month_view", "theme":"light"}}
+      config={{ 
+        layout: "month_view",
+        theme: "auto" // Auto-detect theme
+      }}
     />
   );
 }

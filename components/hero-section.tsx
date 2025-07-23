@@ -8,6 +8,7 @@ import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import ColourfulText from "@/components/ui/colourful-text";
 import { motion } from "framer-motion";
 import { FlipWords } from "./ui/flip-words";
+
 const transitionVariants = {
   item: {
     hidden: {
@@ -27,6 +28,14 @@ const transitionVariants = {
     },
   },
 };
+
+const CheckSVG = ({
+  className = "w-4 h-4 mr-3 fill-black dark:fill-white shrink-0",
+}) => (
+  <svg className={className} viewBox="0 0 12 12">
+    <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
+  </svg>
+);
 
 export default function HeroSection() {
   const words = ["Automation", "preservation", "Automation", "Automation"];
@@ -73,24 +82,10 @@ export default function HeroSection() {
               }}
               className="relative z-20 flex flex-wrap items-center justify-center gap-4 pt-4"
             >
-              {/* <div
-                key={1}
-                className="rounded-[calc(var(--radius-xl)+0.125rem)] border border-white/20 bg-foreground/10 p-0.5"
-              >
-                <Button
-                  asChild
-                  size="lg"
-                  className="rounded-xl bg-[#7abf9b] px-6 py-2.5 text-base font-medium text-white transition-colors hover:bg-[#3c8388] border-[#54a295] focus:ring-offset-2 focus:ring-offset-black dark:bg-black dark:text-white"
-                >
-                  <Link href="#link">
-                    <span className="text-nowrap">Get started</span>
-                  </Link>
-                </Button>
-              </div> */}
               <HoverBorderGradient
                 key={2}
                 as={Link}
-                href="/book-a-call" // Changed to actual destination
+                href="/book-a-call"
                 containerClassName="rounded-xl"
                 className="h-10.5 px-6 py-2.5 text-black bg-white border-white backdrop-blur-sm transition-colors hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-offset-2 focus:ring-offset-black"
                 duration={1}
@@ -100,15 +95,27 @@ export default function HeroSection() {
               </HoverBorderGradient>
             </AnimatedGroup>
           </div>
-
-          {/* Overlay */}
-          {/* <div className="absolute inset-0 z-10 h-full w-full bg-white dark:bg-black/40" /> */}
-
-          {/* 3D Marquee Background */}
-          {/* <ThreeDMarquee
-                        className="pointer-events-none absolute inset-0 h-full w-full"
-                        images={images}
-                    /> */}
+          <div className="text-center mb-16 lg:mb-20">
+            {/* Trust indicators */}
+            <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-black dark:text-white mt-14">
+              <div className="flex items-center gap-2">
+                <CheckSVG />
+                <span>7-day free trial</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckSVG />
+                <span>No setup fees</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckSVG />
+                <span>Cancel anytime</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckSVG />
+                <span>30-day money-back guarantee</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>

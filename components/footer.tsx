@@ -1,8 +1,6 @@
 "use client";
-
 import React from "react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 import {
   IconBrandFacebook,
@@ -10,17 +8,15 @@ import {
   IconBrandYoutube,
   IconBrandInstagram,
 } from "@tabler/icons-react";
-
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
-import { PointerHighlight } from "./ui/pointer-highlight";
+
 
 const footerLinks = [
-  { title: "Pricing", href: "#" },
-  { title: "Faq", href: "#" },
+  { title: "Pricing", href: "/pricing" },
+  { title: "Faq", href: "/faq" },
   { title: "Blogs", href: "/blogs" },
-  { title: "Book a call", href: "#" },
-  { title: "Help", href: "#" },
+  { title: "Book a call", href: "/book-a-call" },
   { title: "Terms & Conditions ", href: "/terms" },
   { title: "Privacy Policy", href: "/privacy" },
   {

@@ -31,6 +31,7 @@ export default function IntegrationsSection() {
                                 </IntegrationCard>
                                 <IntegrationCard>
                                     <Replit />
+                            
                                 </IntegrationCard>
                                 <IntegrationCard>
                                     <MagicUI />

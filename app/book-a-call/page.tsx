@@ -1,8 +1,7 @@
 import CalWidget from "@/components/CalWidget";
-import FAQsTwo from "@/components/faqs-2";
 import FooterSection from "@/components/footer";
 import HeroCall from "@/components/HeroCall";
-import WallOfLoveSection from "@/components/testimonials";
+import Testimonials from "@/components/testimonials";
 
 const BookCallHero = () => (
   <section className="relative bg-white dark:bg-black py-5 lg:py-8">
@@ -17,7 +16,7 @@ const BookCallHero = () => (
 
 const PreFooterCTA = () => {
  
-  const email = "avvjit@gmail.com";
+  const email = "vidit@leadseeder.co"; 
   const subject = "Request for a Meeting";
   const body = "Hello, I couldn't find a suitable time on your calendar. Can we schedule a meeting at a time convenient for you?";
 
@@ -58,6 +57,7 @@ export default function BookAcall() {
       <BookCallHero />
       <CalWidget />
       <PreFooterCTA />
+      <Testimonials/>
       <FooterSection />
     </>
   );

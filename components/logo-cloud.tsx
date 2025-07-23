@@ -15,7 +15,7 @@ export default function LogoCloud() {
                             speed={40}
                             gap={96}  /* Reduced gap for better spacing with larger logos */
                         >
-                            {/* Increased container size to 120x120px */}
+                           
                             <div className="flex items-center justify-center h-30 w-30">  {/* h-30 = 7.5rem (120px) */}
                                 <img
                                     className="max-h-24 max-w-24 object-contain dark:filter dark:brightness-0 dark:invert"  /* max-h-24 = 6rem (96px) */
@@ -56,13 +56,6 @@ export default function LogoCloud() {
                                 />
                             </div>
                             
-                            <div className="flex items-center justify-center h-24 w-24">
-                                <img
-                                    className="max-h-18max-w-18 object-contain dark:filter dark:brightness-0 dark:invert"
-                                    src="/images/image7.png"
-                                    alt="Partner logo"
-                                />
-                            </div>
                             
                             <div className="flex items-center justify-center h-30 w-30">
                                 <img
