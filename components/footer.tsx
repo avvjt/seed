@@ -19,6 +19,8 @@ const footerLinks = [
   { title: "Book a call", href: "/book-a-call" },
   { title: "Terms & Conditions ", href: "/terms" },
   { title: "Privacy Policy", href: "/privacy" },
+  { title: "Legal Notice", href: "/legal" },
+  { title: "Use of Data", href: "/data" },
   {
     title: "Help Center",
     href: "https://intercom.help/leadseeder/en/",
@@ -74,7 +76,7 @@ export default function FooterSection() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center justify-between">
         {/* Logo Section */}
-        <div className="flex items-center justify-center gap-2 mb-16 sm:mb-20">
+        <div className="flex items-center justify-center gap-[1px] mb-16 sm:mb-20">
           {/* Seed icon */}
           <div className="relative h-10 w-10 sm:h-10 sm:w-10">
             <Image

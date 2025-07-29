@@ -110,10 +110,10 @@ export default function HeroSection() {
                 <CheckSVG />
                 <span>Cancel anytime</span>
               </div>
-              <div className="flex items-center gap-2">
+              {/* <div className="flex items-center gap-2">
                 <CheckSVG />
                 <span>30-day money-back guarantee</span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

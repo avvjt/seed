@@ -3,8 +3,8 @@ import Image from 'next/image'
 
 export const Logo = ({ className }: { className?: string }) => {
   return (
-    <div className={cn("flex items-center gap-2", className)}>
-      {/* Static seed image - always appears first */}
+    <div className={cn("flex items-center gap-[1px]", className)}>
+
       <div className="relative h-8 w-8">
         <Image
           src="/images/seedd.png"
@@ -14,8 +14,6 @@ export const Logo = ({ className }: { className?: string }) => {
           aria-hidden="true"
         />
       </div>
-      
-      {/* Text logo that adapts to dark mode */}
       <div className="relative w-[120px] h-10">
         <Image
           src="/images/leadsvg.svg"

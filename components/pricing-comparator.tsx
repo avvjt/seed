@@ -77,12 +77,9 @@ export default function PricingComparator() {
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center bg-white dark:bg-black text-neutral-800 dark:text-neutral-200 overflow-hidden">
-      <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-24">
-        {/* Hero Section */}
+      <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-12">
         <div className="text-center mb-16 lg:mb-20">
           <HeroPricing />
-
-          {/* Trust indicators */}
           <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-black dark:text-white">
             <div className="flex items-center gap-2">
               <CheckSVG />
@@ -102,8 +99,6 @@ export default function PricingComparator() {
             </div>
           </div>
         </div>
-
-        {/* Pricing toggle */}
         <div className="flex justify-center max-w-[14rem] m-auto mb-8 lg:mb-16">
           <div className="relative flex w-full p-1 bg-gray-100 dark:bg-gray-900 rounded-full">
             <span
@@ -147,8 +142,6 @@ export default function PricingComparator() {
             </button>
           </div>
         </div>
-
-        {/* Pricing cards */}
         <div className="max-w-sm mx-auto grid gap-6 lg:grid-cols-3 items-start lg:max-w-none">
           {plans.map((plan) => (
             <div key={plan.name} className="h-full">
