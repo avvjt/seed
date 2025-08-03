@@ -186,11 +186,11 @@ export const Lid = ({
             playsInline
             disablePictureInPicture
             disableRemotePlayback
-            className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
+            className="absolute inset-0 h-full w-full rounded-lg object-cover object-center"
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center rounded-lg">
-            {/* <AceternityLogo /> */}
+            
           </div>
         )}
       </motion.div>

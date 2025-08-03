@@ -38,7 +38,7 @@ const CheckSVG = ({
 );
 
 export default function HeroSection() {
-  const words = ["Automation", "preservation", "Automation", "Automation"];
+  const words = ["Automation", "Prospecting", "Outreach"];
 
   return (
     <main className=" bg-white dark:bg-[oklch(0.147_0.004_49.25)] text-black dark:text-neutral-200 rounded-md mx-3 flex pt-20 pb-4 items-center justify-center overflow-hidden">
@@ -49,11 +49,11 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="mx-auto max-w-4xl text-balance text-6xl font-bold text-black dark:text-neutral-200 md:text-7xl lg:text-6xl xl:text-[5.25rem]"
-            >
-              Modern <FlipWords words={words} />
-              <br />
-              Solutions for Lead Generation
+              className="mx-auto max-w-4xl text-balance text-6xl font-bold text-black dark:text-neutral-200 md:text-7xl lg:text-6xl xl:text-[5.25rem]">
+              Best LinkedIn 
+              <FlipWords words={words} />Tool
+              <br/>
+               for Lead Generation 
             </motion.h1>
 
             <TextEffect
@@ -65,8 +65,8 @@ export default function HeroSection() {
               className="relative z-20 mx-auto max-w-2xl py-8 text-center text-lg text-black dark:text-neutral-200 md:text-base"
             >
               Automate LinkedIn connection requests, Send automated follow-up
-              messages, and visit the profiles of your prospects. 10x your
-              LinkedIn outreach and book meetings with Leadseeder
+              messages, and Visit the profiles of your Prospects on LinkedIn. 10x your
+              LinkedIn outreach and book meetings
             </TextEffect>
             <AnimatedGroup
               variants={{
@@ -85,13 +85,13 @@ export default function HeroSection() {
               <HoverBorderGradient
                 key={2}
                 as={Link}
-                href="/book-a-call"
+                href="/https://intercom.help/leadseeder-d062fd4f1bbf/en/articles/11736915-connecting-your-linkedin-account-using-the-leadseeder-extension"
                 containerClassName="rounded-xl"
                 className="h-10.5 px-6 py-2.5 text-black bg-white border-white backdrop-blur-sm transition-colors hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-offset-2 focus:ring-offset-black"
                 duration={1}
                 clockwise={true}
               >
-                <span className="text-nowrap">Get started</span>
+                <span className="text-nowrap">Free Trial</span>
               </HoverBorderGradient>
             </AnimatedGroup>
           </div>

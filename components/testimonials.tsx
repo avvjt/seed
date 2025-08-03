@@ -10,43 +10,49 @@ export default function Testimonials() {
            It works for everyone. Including you
           </h2>
           <p>
-            Trusted by more than 10,000+ users in almost every industry and country.
+            Trusted by more than 1,000+ users in almost every industry and country.
           </p>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-rows-2">
           <Card className="grid grid-rows-[auto_1fr] gap-8 sm:col-span-2 sm:p-6 lg:row-span-2">
+            <CardHeader>
+              {/* <img
+                className="h-10 w-fit dark:invert"
+                // src="/images/seed.png"
+                // alt="Nike Logo"
+                height="24"
+                width="auto"
+              /> */}
+            </CardHeader>
             <CardContent>
               <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
                 <p className="text-lg font-medium">
-                  Creative and personalized way to connect with prospects on
-                  LinkedIn without being intrusive I saw its potential before
-                  seeing a demo because the team used the solution to connect
-                  with me. The approach is very lowkey compared to the way
-                  people try to connect and immediately "sell'... ROI has been
-                  excellent for our company. The cost is very reasonable, and
-                  the approach is very unique. We have already closed one
-                  customer on an enterprise deal...
+                What truly impressed me was how naturally Leadseeder helped us connect with prospects on LinkedIn—without ever feeling pushy or salesy. Before scheduling a demo, the team actually reached out to me using their own automation solution, and the entire process felt unusually authentic and relevant. Unlike other tools that bombard connections with generic messages, Leadseeder enabled a sequence that felt personal and thoughtful every step of the way.
+
+The workflow is remarkably low-key: it prioritizes building real relationships over just pushing for a sale. This approach resonated so well that prospects responded much more openly, and it made our lead generation efforts feel more human. The ROI for our company has honestly exceeded all expectations—we closed a major enterprise client within the first month of implementation.
+
+
                 </p>
 
                 <div className="grid grid-cols-[auto_1fr] items-center gap-3">
                   <Avatar className="size-12">
                     <AvatarImage
                       src="https://tailus.io/images/reviews/shekinah.webp"
-                      alt="Shekinah Tshiokufila"
+                      alt="Chirag Gupta"
                       height="400"
                       width="400"
                       loading="lazy"
                     />
-                    <AvatarFallback>ST</AvatarFallback>
+                    <AvatarFallback>CG</AvatarFallback>
                   </Avatar>
 
                   <div>
                     <cite className="text-sm font-medium">
-                      Shekinah Tshiokufila
+                      Chirag Gupta
                     </cite>
                     <span className="text-muted-foreground block text-sm">
-                      Software Ingineer
+                      CEO & CTO @BoloSign
                     </span>
                   </div>
                 </div>
@@ -57,27 +63,24 @@ export default function Testimonials() {
             <CardContent className="h-full pt-6">
               <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
                 <p className="text-lg font-medium">
-                  Best competing LI automation tool there is The sequencing
-                  capabilities, AI functions that help boost engagement & the
-                  user-friendly UI. Makes it a dream to use! We're now able to
-                  engage with prospects quicker and better...
+                Leadseeder has truly transformed the way I generate leads and build my network on LinkedIn. I’ve been using it for six months, and it has significantly improved my outreach and expanded my professional connections. In my opinion, it’s the best budget-friendly alternative to Waalaxy and stands out compared to all the other expensive LinkedIn automation tools I’ve tried.
                 </p>
 
                 <div className="grid grid-cols-[auto_1fr] items-center gap-3">
                   <Avatar className="size-12">
                     <AvatarImage
                       src="https://tailus.io/images/reviews/jonathan.webp"
-                      alt="Jonathan Yombo"
+                      alt="AL Mehdi"
                       height="400"
                       width="400"
                       loading="lazy"
                     />
-                    <AvatarFallback>JY</AvatarFallback>
+                    <AvatarFallback>AM</AvatarFallback>
                   </Avatar>
                   <div>
-                    <cite className="text-sm font-medium">Jonathan Yombo</cite>
+                    <cite className="text-sm font-medium">Al Mehdi</cite>
                     <span className="text-muted-foreground block text-sm">
-                      Software Ingineer
+                      Agency Owner DigiVibes
                     </span>
                   </div>
                 </div>
@@ -88,8 +91,8 @@ export default function Testimonials() {
             <CardContent className="h-full pt-6">
               <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
                 <p>
-                  Love the software! Easy to use and helps my led gen for my
-                  marketing agency a ton. Pratiksha did a great job in helping
+                  Love the software! Very easy to use and helps my led gen for my
+                  marketing agency a ton. Their customer success team did a great job in helping
                   me navigate the product and helping me with my many questions.
                 </p>
 
@@ -97,19 +100,19 @@ export default function Testimonials() {
                   <Avatar className="size-12">
                     <AvatarImage
                       src="https://tailus.io/images/reviews/yucel.webp"
-                      alt="Yucel Faruksahan"
+                      alt="Eve Chan"
                       height="400"
                       width="400"
                       loading="lazy"
                     />
-                    <AvatarFallback>YF</AvatarFallback>
+                    <AvatarFallback>EC</AvatarFallback>
                   </Avatar>
                   <div>
                     <cite className="text-sm font-medium">
-                      Yucel Faruksahan
+                      Eve Chan
                     </cite>
                     <span className="text-muted-foreground block text-sm">
-                      Creator, Tailkits
+                      Founder, Growth Machine
                     </span>
                   </div>
                 </div>
@@ -130,17 +133,17 @@ export default function Testimonials() {
                   <Avatar className="size-12">
                     <AvatarImage
                       src="https://tailus.io/images/reviews/rodrigo.webp"
-                      alt="Rodrigo Aguilar"
+                      alt="Muhammad Junaid"
                       height="400"
                       width="400"
                       loading="lazy"
                     />
-                    <AvatarFallback>YF</AvatarFallback>
+                    <AvatarFallback>MJ</AvatarFallback>
                   </Avatar>
                   <div>
-                    <p className="text-sm font-medium">Rodrigo Aguilar</p>
+                    <p className="text-sm font-medium">Muhammad Junaid</p>
                     <span className="text-muted-foreground block text-sm">
-                      Creator, TailwindAwesome
+                      Sales Manager, ikonicdev
                     </span>
                   </div>
                 </div>

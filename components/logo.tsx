@@ -27,9 +27,9 @@ export const Logo = ({ className }: { className?: string }) => {
 }
 export const LogoIcon = ({ className }: { className?: string }) => {
   return (
-    <div className={cn("relative size-5", className)}>
+    <div className={cn("relative size-8", className)}>
       <Image
-        src="/images/seed.png"
+        src="/images/seedd.png"
         alt="Icon"
         fill
         className="object-contain"

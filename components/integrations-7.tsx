@@ -17,11 +17,12 @@ export default function IntegrationsSection() {
   const row2 = [logos[3], logos[4], logos[1], logos[0], logos[2]];
   const row3 = [logos[4], logos[0], logos[3], logos[1], logos[2]];
 
-  return (
+ return (
     <section>
       <div className="bg-background dark:bg-background py-24 md:py-32">
         <div className="mx-auto max-w-5xl px-6">
           <div className="bg-muted/25 group relative mx-auto max-w-[22rem] items-center justify-between space-y-6 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] sm:max-w-md">
+            {/* Background grid */}
             <div
               role="presentation"
               className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:32px_32px] opacity-50"></div>
@@ -31,12 +32,12 @@ export default function IntegrationsSection() {
               <InfiniteSlider gap={45} speed={20} speedOnHover={10}>
                 {row1.map((src, index) => (
                   <IntegrationCard key={index}>
-                    <div className="relative w-full h-full">
+                    <div className="relative w-full h-full rounded-full overflow-hidden">
                       <Image
                         src={src}
                         alt="Integration logo"
                         fill
-                        className="object-contain p-1.5"
+                        className="object-cover" // Changed to cover
                         unoptimized
                       />
                     </div>
@@ -50,12 +51,12 @@ export default function IntegrationsSection() {
               <InfiniteSlider gap={45} speed={20} speedOnHover={10} reverse>
                 {row2.map((src, index) => (
                   <IntegrationCard key={index}>
-                    <div className="relative w-full h-full">
+                    <div className="relative w-full h-full rounded-full overflow-hidden">
                       <Image
                         src={src}
                         alt="Integration logo"
                         fill
-                        className="object-contain p-1.5"
+                        className="object-cover" // Changed to cover
                         unoptimized
                       />
                     </div>
@@ -69,12 +70,12 @@ export default function IntegrationsSection() {
               <InfiniteSlider gap={45} speed={20} speedOnHover={10}>
                 {row3.map((src, index) => (
                   <IntegrationCard key={index}>
-                    <div className="relative w-full h-full">
+                    <div className="relative w-full h-full rounded-full overflow-hidden">
                       <Image
                         src={src}
                         alt="Integration logo"
                         fill
-                        className="object-contain p-1.5"
+                        className="object-cover" // Changed to cover
                         unoptimized
                       />
                     </div>

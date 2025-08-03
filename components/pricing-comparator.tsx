@@ -43,8 +43,8 @@ const plans = [
       "Premium Sales Nav & Recruiter Support",
       "Sendspark video integration",
       "Remove prospects from active campaigns",
-      "Priority email support",
       "Advanced campaign analytics",
+      "Priority email support",
     ],
     popular: true,
     ctaText: "Start 7-Day Free Trial",
@@ -59,13 +59,13 @@ const plans = [
       "Dedicated account manager",
       "Custom invitation limits",
       "Unlimited messaging volume",
-      "SAML SSO integration",
-      "API access & webhooks",
-      "Custom reporting & analytics",
-      "Priority onboarding",
-      "99.9% uptime SLA",
+      // "SAML SSO integration",
+      // "API access & webhooks",
+      "Unlimited team members",
+      // "99.9% uptime SLA",
       "Dedicated IP addresses",
-      "SOC 2 compliance",
+      "Priority onboarding",
+      // "SOC 2 compliance",
     ],
     popular: false,
     ctaText: "Contact Sales",
@@ -77,9 +77,12 @@ export default function PricingComparator() {
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center bg-white dark:bg-black text-neutral-800 dark:text-neutral-200 overflow-hidden">
-      <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-12">
+      <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-24">
+        {/* Hero Section */}
         <div className="text-center mb-16 lg:mb-20">
           <HeroPricing />
+
+          {/* Trust indicators */}
           <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-black dark:text-white">
             <div className="flex items-center gap-2">
               <CheckSVG />
@@ -87,18 +90,20 @@ export default function PricingComparator() {
             </div>
             <div className="flex items-center gap-2">
               <CheckSVG />
-              <span>No setup fees</span>
+              <span>One Minute setup</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckSVG />
-              <span>Cancel anytime</span>
+              <span>No Credit Card Required</span>
             </div>
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               <CheckSVG />
               <span>30-day money-back guarantee</span>
-            </div>
+            </div> */}
           </div>
         </div>
+
+        {/* Pricing toggle */}
         <div className="flex justify-center max-w-[14rem] m-auto mb-8 lg:mb-16">
           <div className="relative flex w-full p-1 bg-gray-100 dark:bg-gray-900 rounded-full">
             <span
@@ -142,6 +147,8 @@ export default function PricingComparator() {
             </button>
           </div>
         </div>
+
+        {/* Pricing cards */}
         <div className="max-w-sm mx-auto grid gap-6 lg:grid-cols-3 items-start lg:max-w-none">
           {plans.map((plan) => (
             <div key={plan.name} className="h-full">
@@ -196,7 +203,7 @@ export default function PricingComparator() {
                     }`}
                     href={
                       plan.name === "Enterprise"
-                        ? "mailto:sales@leadseeder.com"
+                        ? "mailto:support@leadseeder.co"
                         : "#"
                     }
                   >

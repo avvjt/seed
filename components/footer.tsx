@@ -17,20 +17,21 @@ const footerLinks = [
   { title: "Faq", href: "/faq" },
   { title: "Blogs", href: "/blogs" },
   { title: "Book a call", href: "/book-a-call" },
-  { title: "Terms & Conditions ", href: "/terms" },
-  { title: "Privacy Policy", href: "/privacy" },
-  { title: "Legal Notice", href: "/legal" },
-  { title: "Use of Data", href: "/data" },
   {
     title: "Help Center",
     href: "https://intercom.help/leadseeder/en/",
     external: true,
   },
-  {
-    title: "Feature Request",
-    href: "https://leadseeder.canny.io/feature-requests",
-    external: true,
-  },
+  { title: "Terms & Conditions ", href: "/terms" },
+  { title: "Privacy Policy", href: "/privacy" },
+  { title: "Legal Notice", href: "/legal" },
+  { title: "Use of Data", href: "/data" },
+  
+  // {
+  //   title: "Feature Request",
+  //   href: "https://leadseeder.canny.io/feature-requests",
+  //   external: true,
+  // },
 ];
 
 const dockLinks = [

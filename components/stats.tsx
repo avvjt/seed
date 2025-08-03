@@ -45,28 +45,28 @@ function useCountUp(to: number, start: boolean, duration = 1500) {
 
 export default function StatsSection() {
     const [ref, inView] = useInView(0.3); // 30% visible
-    const responses = useCountUp(76, inView);
-    const users = useCountUp(3000, inView);
+    const responses = useCountUp(1000, inView);
+    const users = useCountUp(1300, inView);
     const connected = useCountUp(267, inView);
-    const value = useCountUp(50, inView);
+    const value = useCountUp(29, inView);
   
     return (
       <section className="py-12 md:py-20" ref={ref}>
         <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
           <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center">
-            <h2 className="text-4xl font-medium lg:text-5xl">LeedSeeder in numbers</h2>
+            <h2 className="text-4xl font-medium lg:text-5xl">Leedseeder in numbers</h2>
             <p>
-              LeedSeeder is evolving to be more than just a Chrome Extension. It supports an entire to the APIs and platforms helping marketer and businesses innovate.
+            Leadseeder powers scalable LinkedIn automation and lead generation for growing teams and enterprises.
             </p>
           </div>
           <div className="grid gap-12 divide-y *:text-center md:grid-cols-4 md:gap-2 md:divide-x md:divide-y-0">
             <div className="space-y-4">
-              <div className="text-5xl font-bold">+{users}</div>
+              <div className="text-5xl font-bold">{users}+</div>
               <p>Active Users</p>
             </div>
             <div className="space-y-4">
-              <div className="text-5xl font-bold">{responses+"K+"}</div>
-              <p>Responses</p>
+              <div className="text-5xl font-bold">{responses+"%"}</div>
+              <p>More ROI</p>
             </div>
             
             <div className="space-y-4">
@@ -82,4 +82,3 @@ export default function StatsSection() {
       </section>
     );
   }
-  
