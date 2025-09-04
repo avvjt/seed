@@ -8,6 +8,7 @@ import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import ColourfulText from "@/components/ui/colourful-text";
 import { motion } from "framer-motion";
 import { FlipWords } from "./ui/flip-words";
+import { Tooltip } from "./tooltip";
 
 const transitionVariants = {
   item: {
@@ -116,6 +117,7 @@ export default function HeroSection() {
               </div> */}
             </div>
           </div>
+          <Tooltip/>
         </div>
       </section>
     </main>
